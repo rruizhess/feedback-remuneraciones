@@ -36,6 +36,7 @@ public class Menu extends javax.swing.JFrame {
              this.btnagregarusuario.setEnabled(true);
              this.btnlistausuario.setEnabled(true);
              this.btnsucesos.setEnabled(true);
+             this.btnaddliquidacion.setEnabled(true);
          }
          else if(valor==2){
              this.btnuser.setText(nombre+" "+paterno);
