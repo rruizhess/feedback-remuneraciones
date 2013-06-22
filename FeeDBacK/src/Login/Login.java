@@ -47,7 +47,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("CONTRASEÑA");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/process-stop.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/close.png"))); // NOI18N
         jButton1.setText("Cancelar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,7 +55,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        btnentrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/ok.png"))); // NOI18N
+        btnentrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/login.png"))); // NOI18N
         btnentrar.setText("Iniciar Sesión");
         btnentrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
