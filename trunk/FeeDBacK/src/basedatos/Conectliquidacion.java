@@ -38,5 +38,74 @@ public class Conectliquidacion {
         }catch (Exception e){}
         return data;
     }
+     public Object [] getSalud(String nombresalud, String mes, String año){
+        Object[] data = new String[2];
+        try{
+
+            PreparedStatement pstm;
+                pstm = conn.getConnection().prepareStatement("SELECT * FROM salud WHERE nombre='"+nombresalud+"' and mes='"+mes+"' and año='"+año+"");
+            ResultSet res;
+                res = pstm.executeQuery();
+
+                if(res.next() ) {
+                        data[0] = res.getString("nombre");
+                        data[1] = res.getString("valor");
+                }
+
+        }catch (Exception e){}
+        return data;
+    }
+     
+      public Object [] getPrevision(String nombresalud, String mes, String año){
+        Object[] data = new String[2];
+        try{
+
+            PreparedStatement pstm;
+                pstm = conn.getConnection().prepareStatement("SELECT * FROM prevision WHERE nombre='"+nombresalud+"' and mes='"+mes+"' and año='"+año+"");
+            ResultSet res;
+                res = pstm.executeQuery();
+
+                if(res.next() ) {
+                        data[0] = res.getString("nombre");
+                        data[1] = res.getString("valor");
+                }
+
+        }catch (Exception e){}
+        return data;
+    }
+    public Object [] getParametro(String nombresalud, String mes, String año){
+        Object[] data = new String[2];
+        try{
+
+            PreparedStatement pstm;
+                pstm = conn.getConnection().prepareStatement("SELECT * FROM parametro WHERE nombre='"+nombresalud+"' and mes='"+mes+"' and año='"+año+"");
+            ResultSet res;
+                res = pstm.executeQuery();
+
+                if(res.next() ) {
+                        data[0] = res.getString("nombre");
+                        data[1] = res.getString("valor");
+                }
+
+        }catch (Exception e){}
+        return data;
+    }
+    public Object [] getAsignacion(String mes, String año){
+        Object[] data = new String[2];
+        try{
+
+            PreparedStatement pstm;
+                pstm = conn.getConnection().prepareStatement("SELECT * FROM asignacion WHERE and mes='"+mes+"' and año='"+año+"");
+            ResultSet res;
+                res = pstm.executeQuery();
+
+                if(res.next() ) {
+                        data[0] = res.getString("monto");
+                        data[1] = res.getString("requisito");
+                }
+
+        }catch (Exception e){}
+        return data;
+    }
 }
  
