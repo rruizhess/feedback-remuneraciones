@@ -1,5 +1,4 @@
 package basedatos;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,7 +6,6 @@ import javax.swing.JOptionPane;
 
 public class control {
     Conect conn;
-    private String telefono;
     
     public control(){
         conn = new Conect();
@@ -23,12 +21,13 @@ public class control {
             pstm.setInt(6, idcargo);
             pstm.execute();
             pstm.close();
+            JOptionPane.showMessageDialog(null, "El el usuario registrado correctamente");
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, e);
         }
     }
-     public void addUserComplete(String ruttrabajador, String nombre, String paterno, String materno, int idcargo, String nombresalud, String nombreprevision, String fechaingreso, String tipocontrato, String ncargafamiliar, String sueldobase, String direccion, String estado){
-          try{
+    public void addUserComplete(String ruttrabajador, String nombre, String paterno, String materno, int idcargo, String nombresalud, String nombreprevision, String fechaingreso, String tipocontrato, String ncargafamiliar, String sueldobase, String direccion, String estado){
+        try{
             PreparedStatement pstm = conn.getConnection().prepareStatement("insert into trabajador (ruttrabajador, nombre, paterno, materno, idcargo, nombresalud, nombreprevision, fechaingreso, tipocontrato, ncargafamiliar, sueldobase, direccion, estado) values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
             pstm.setString(1, ruttrabajador);
             pstm.setString(2, nombre);
@@ -48,8 +47,8 @@ public class control {
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, e);
         }
-     }
-     public void updateUsuarioComplete(String ruttrabajador, String nombre, String paterno, String materno, int idcargo, String nombresalud, String nombreprevision, String fechaingreso, String tipocontrato, String ncargafamiliar, String sueldobase, String direccion, String telefono, String estado){
+    }
+    public void updateUsuarioComplete(String ruttrabajador, String nombre, String paterno, String materno, int idcargo, String nombresalud, String nombreprevision, String fechaingreso, String tipocontrato, String ncargafamiliar, String sueldobase, String direccion, String telefono, String estado){
        try {            
             PreparedStatement pstm = conn.getConnection().prepareStatement("update trabajador " +
             "set nombre = ? ," +
@@ -108,7 +107,7 @@ public class control {
             JOptionPane.showMessageDialog(null, e);
       }
    }
-    public void updateUsuario2(String ruttrabajador, String nombre, String paterno, String materno, int idcargo){
+   public void updateUsuario2(String ruttrabajador, String nombre, String paterno, String materno, int idcargo){
        try {            
             PreparedStatement pstm = conn.getConnection().prepareStatement("update trabajador " +
             "set nombre = ? ," +
@@ -128,30 +127,30 @@ public class control {
              JOptionPane.showMessageDialog(null, e);
       }
    }
-    public void delUsuario(String ruttrabajador){
-        try {                
-                PreparedStatement pstm = conn.getConnection().prepareStatement("delete from trabajador where ruttrabajador = ?");            
-                pstm.setString(1, ruttrabajador);                   
-                pstm.execute();
-                pstm.close();            
-            }catch(SQLException e){
-                JOptionPane.showMessageDialog(null, e);
-            }
-    }
-    public void updateClave(String clave, String ruttrabajador){
-        try {                
-                PreparedStatement pstm = conn.getConnection().prepareStatement("update trabajador "+
-                "set clave=?"+
-                "where ruttrabajador=?");            
-                pstm.setString(1, clave);                 
-                pstm.setString(2, ruttrabajador);
-                pstm.execute();
-                pstm.close();            
-            }catch(SQLException e){
-                JOptionPane.showMessageDialog(null, e);
-            }
-    }
-    public Object [][] getUsuarios(){
+   public void delUsuario(String ruttrabajador){
+       try {                
+            PreparedStatement pstm = conn.getConnection().prepareStatement("delete from trabajador where ruttrabajador = ?");            
+            pstm.setString(1, ruttrabajador);                   
+            pstm.execute();
+            pstm.close();            
+       }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+      }
+   }
+   public void updateClave(String clave, String ruttrabajador){
+       try {                
+            PreparedStatement pstm = conn.getConnection().prepareStatement("update trabajador "+
+            "set clave=?"+
+            "where ruttrabajador=?");            
+            pstm.setString(1, clave);                 
+            pstm.setString(2, ruttrabajador);
+            pstm.execute();
+            pstm.close();            
+       }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+      }
+   }
+   public Object [][] getUsuarios(){
         int posid = 0;
         try{
             PreparedStatement pstm = conn.getConnection().prepareStatement("SELECT count(1) as total FROM trabajador");
@@ -182,7 +181,7 @@ public class control {
             }
             res.close();
             }catch(SQLException e){
-                System.out.println(e);
+                JOptionPane.showMessageDialog(null, e);
         }
         return data;
     }
@@ -216,7 +215,7 @@ public class control {
              JOptionPane.showMessageDialog(null, e);
       }
    }
-    public Object [][] getPrevision(){
+   public Object [][] getPrevision(){
         int posid = 0;
         try{
             PreparedStatement pstm = conn.getConnection().prepareStatement("SELECT count(1) as total FROM prevision");
@@ -245,17 +244,17 @@ public class control {
             }
             res.close();
             }catch(SQLException e){
-                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(null, e);
         }
         return data;
-    }
-     public void delPrevision(int usuario_Codigo){
+   }
+   public void delPrevision(int usuario_Codigo){
         try{
             PreparedStatement pstm = conn.getConnection().prepareStatement("delete from Usuario where usuario_Codigo = "+usuario_Codigo);
             pstm.execute();
             pstm.close();
         }catch(SQLException e){
-            System.out.println("error "+e);
+            JOptionPane.showMessageDialog(null, e);
         }
     }
     //------------------------------------------------------------------------------------------------------------//
@@ -300,7 +299,7 @@ public class control {
             posid = res.getInt("total");
             res.close();
             }catch(SQLException e){
-                System.out.println(e);
+                JOptionPane.showMessageDialog(null, e);
         }
         Object[][] data = new String[posid][6];
         try{
@@ -320,7 +319,7 @@ public class control {
             }
             res.close();
             }catch(SQLException e){
-                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(null, e);
         }
         return data;
     }
@@ -330,7 +329,7 @@ public class control {
             pstm.execute();
             pstm.close();
         }catch(SQLException e){
-            System.out.println("error "+e);
+            JOptionPane.showMessageDialog(null, e);
         }
     }
     //-------------------------------------------------------------------------------------------------------------------
@@ -369,7 +368,7 @@ public class control {
             posid = res.getInt("total");
             res.close();
             }catch(SQLException e){
-                System.out.println(e);
+                JOptionPane.showMessageDialog(null, e);
         }
         Object[][] data = new String[posid][6];
         try{
@@ -387,7 +386,7 @@ public class control {
             }
             res.close();
             }catch(SQLException e){
-                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(null, e);
         }
         return data;
     }
@@ -397,7 +396,7 @@ public class control {
             pstm.execute();
             pstm.close();
         }catch(SQLException e){
-            System.out.println("error "+e);
+            JOptionPane.showMessageDialog(null, e);
         }
     }
      //--------------------------------------------------------------------------------------------------------------------//
@@ -432,8 +431,7 @@ public class control {
              JOptionPane.showMessageDialog(null, e);
       }
    }
-    
-    public Object [][] getParametros(){
+   public Object [][] getParametros(){
         int posid = 0;
         try{
             PreparedStatement pstm = conn.getConnection().prepareStatement("SELECT count(1) as total FROM parametros");
@@ -442,7 +440,7 @@ public class control {
             posid = res.getInt("total");
             res.close();
             }catch(SQLException e){
-                System.out.println(e);
+                JOptionPane.showMessageDialog(null, e);
         }
         Object[][] data = new String[posid][6];
         try{
@@ -462,17 +460,17 @@ public class control {
             }
             res.close();
             }catch(SQLException e){
-                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(null, e);
         }
         return data;
     }
-     public void delParametros(String mes, String año, String nombre){
+    public void delParametros(String mes, String año, String nombre){
         try{
             PreparedStatement pstm = conn.getConnection().prepareStatement("delete from parametros where mes='"+mes+"' and mes='"+mes+"'and nombre='"+nombre+"'");
             pstm.execute();
             pstm.close();
         }catch(SQLException e){
-            System.out.println("error "+e);
+            JOptionPane.showMessageDialog(null, e);
             }
      }
      public void delFono(String ruttrabajador, String telefono){
@@ -481,7 +479,7 @@ public class control {
             pstm.execute();
             pstm.close();
         }catch(SQLException e){
-            System.out.println("error "+e);
+            JOptionPane.showMessageDialog(null, e);
         }
     }
 }
