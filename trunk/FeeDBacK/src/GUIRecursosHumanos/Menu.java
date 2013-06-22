@@ -36,6 +36,7 @@ public class Menu extends javax.swing.JFrame {
              this.btnagregarusuario.setEnabled(true);
              this.btnlistausuario.setEnabled(true);
              this.btnsucesos.setEnabled(true);
+             this.btnaddliquidacion.setEnabled(true);
          }
          else if(valor==2){
              this.btnuser.setText(nombre+" "+paterno);
@@ -179,6 +180,11 @@ public class Menu extends javax.swing.JFrame {
 
         btnaddliquidacion.setText("Liquidacón");
         btnaddliquidacion.setEnabled(false);
+        btnaddliquidacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddliquidacionActionPerformed(evt);
+            }
+        });
         jMenu5.add(btnaddliquidacion);
 
         jMenu2.add(jMenu5);
@@ -463,6 +469,12 @@ public class Menu extends javax.swing.JFrame {
         vc.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void btnaddliquidacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddliquidacionActionPerformed
+        Liquidacion li=new Liquidacion();
+        p.add(li);
+        li.show();
+    }//GEN-LAST:event_btnaddliquidacionActionPerformed
 
 
     /**
