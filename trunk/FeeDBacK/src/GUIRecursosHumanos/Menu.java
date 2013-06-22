@@ -473,7 +473,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btneditdatosActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        IngresoTrabajadores it=new IngresoTrabajadores();
+        ingresoTrabajador it=new ingresoTrabajador();
         p.add(it);
         it.show();
         // TODO add your handling code here:
