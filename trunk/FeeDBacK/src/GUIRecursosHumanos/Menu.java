@@ -36,7 +36,6 @@ public class Menu extends javax.swing.JFrame {
              this.btnagregarusuario.setEnabled(true);
              this.btnlistausuario.setEnabled(true);
              this.btnsucesos.setEnabled(true);
-             this.btnaddliquidacion.setEnabled(true);
          }
          else if(valor==2){
              this.btnuser.setText(nombre+" "+paterno);
@@ -66,11 +65,11 @@ public class Menu extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         btnaddcontrato = new javax.swing.JMenuItem();
         btnaddfiniquito = new javax.swing.JMenuItem();
-        btnaddliquidacion = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         btnmantenedores = new javax.swing.JMenu();
         btndelcontrato = new javax.swing.JMenuItem();
         btndelfiniquito = new javax.swing.JMenuItem();
-        btndelliquidacion = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -189,10 +188,14 @@ public class Menu extends javax.swing.JFrame {
         btnaddfiniquito.setEnabled(false);
         jMenu5.add(btnaddfiniquito);
 
-        btnaddliquidacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/File-add-icon.png"))); // NOI18N
-        btnaddliquidacion.setText("Liquidacón");
-        btnaddliquidacion.setEnabled(false);
-        jMenu5.add(btnaddliquidacion);
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/File-add-icon.png"))); // NOI18N
+        jMenuItem3.setText("Liquidación");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem3);
 
         jMenu2.add(jMenu5);
 
@@ -209,10 +212,10 @@ public class Menu extends javax.swing.JFrame {
         btndelfiniquito.setEnabled(false);
         btnmantenedores.add(btndelfiniquito);
 
-        btndelliquidacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/File-edit-icon.png"))); // NOI18N
-        btndelliquidacion.setText("Liquidación");
-        btndelliquidacion.setEnabled(false);
-        btnmantenedores.add(btndelliquidacion);
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/File-edit-icon.png"))); // NOI18N
+        jMenuItem4.setText("Liquidación");
+        jMenuItem4.setEnabled(false);
+        btnmantenedores.add(jMenuItem4);
 
         jMenu2.add(btnmantenedores);
 
@@ -363,7 +366,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+            .addComponent(p, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
         );
 
         pack();
@@ -489,6 +492,13 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        Liquidacion liq=new Liquidacion();
+        p.add(liq);
+        liq.show();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -540,7 +550,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnacerca;
     private javax.swing.JMenuItem btnaddcontrato;
     private javax.swing.JMenuItem btnaddfiniquito;
-    private javax.swing.JMenuItem btnaddliquidacion;
     private javax.swing.JMenu btnadministrativo;
     private javax.swing.JMenuItem btnagregarusuario;
     private javax.swing.JMenu btnayuda;
@@ -548,7 +557,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnclave;
     private javax.swing.JMenuItem btndelcontrato;
     private javax.swing.JMenuItem btndelfiniquito;
-    private javax.swing.JMenuItem btndelliquidacion;
     private javax.swing.JMenuItem btneditdatos;
     private javax.swing.JMenuItem btngraficos;
     private javax.swing.JMenuItem btnlistausuario;
@@ -569,6 +577,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JDesktopPane p;
