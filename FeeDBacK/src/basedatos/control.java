@@ -26,9 +26,9 @@ public class control {
                 JOptionPane.showMessageDialog(null, e);
         }
     }
-    public void addUserComplete(String ruttrabajador, String nombre, String paterno, String materno, int idcargo, String nombresalud, String nombreprevision, String fechaingreso, String tipocontrato, String ncargafamiliar, String sueldobase, String direccion, String estado){
+    public void addUserComplete(String ruttrabajador, String nombre, String paterno, String materno, int idcargo, String nombresalud, String nombreprevision, String fechaingreso, String tipocontrato, String ncargafamiliar, String sueldobase, String direccion, String telefono, String email, String estado){
         try{
-            PreparedStatement pstm = conn.getConnection().prepareStatement("insert into trabajador (ruttrabajador, nombre, paterno, materno, idcargo, nombresalud, nombreprevision, fechaingreso, tipocontrato, ncargafamiliar, sueldobase, direccion, estado) values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement pstm = conn.getConnection().prepareStatement("insert into trabajador (ruttrabajador, nombre, paterno, materno, idcargo, nombresalud, nombreprevision, fechaingreso, tipocontrato, ncargafamiliar, sueldobase, direccion, telefono, email, estado) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             pstm.setString(1, ruttrabajador);
             pstm.setString(2, nombre);
             pstm.setString(3, paterno);
@@ -41,14 +41,16 @@ public class control {
             pstm.setString(10, ncargafamiliar);
             pstm.setString(11, sueldobase);
             pstm.setString(12, direccion);
-            pstm.setString(13, estado);
+            pstm.setString(13, telefono);
+            pstm.setString(14, email);
+            pstm.setString(15, estado);
             pstm.execute();
             pstm.close();
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, e);
         }
     }
-    public void updateUsuarioComplete(String ruttrabajador, String nombre, String paterno, String materno, int idcargo, String nombresalud, String nombreprevision, String fechaingreso, String tipocontrato, String ncargafamiliar, String sueldobase, String direccion, String telefono, String estado){
+    public void updateUsuarioComplete(String ruttrabajador, String nombre, String paterno, String materno, int idcargo, String nombresalud, String nombreprevision, String fechaingreso, String tipocontrato, String ncargafamiliar, String sueldobase, String direccion, String telefono, String email, String estado){
        try {            
             PreparedStatement pstm = conn.getConnection().prepareStatement("update trabajador " +
             "set nombre = ? ," +
@@ -63,6 +65,7 @@ public class control {
             "sueldobase = ? ," + 
             "direccion = ? ," +
             "telefono = ? ," +
+            "email = ? ," +        
             "estado = ? " + 
             "where ruttrabajador = ?");            
             pstm.setString(1, nombre);
@@ -77,8 +80,9 @@ public class control {
             pstm.setString(10, sueldobase);
             pstm.setString(11, direccion);
             pstm.setString(12, telefono);
-            pstm.setString(13, estado);
-            pstm.setString(14, ruttrabajador);
+            pstm.setString(13, email);
+            pstm.setString(14, estado);
+            pstm.setString(15, ruttrabajador);
             pstm.execute();
             pstm.close();            
          }catch(SQLException e){
