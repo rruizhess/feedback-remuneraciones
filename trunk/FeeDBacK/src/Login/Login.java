@@ -157,7 +157,6 @@ public class Login extends javax.swing.JFrame {
                     priv="Administrador";
                     JOptionPane.showMessageDialog(this, "Bienvenido (a) "+u.getNombre()+" "+u.getPaterno()+". ("+priv+").");
                     Menu m=new Menu(u.getCargo(),priv,u.getRuttrabajador(),u.getNombre(),u.getPaterno(),u.getMaterno(),u.getDireccion(),u.getTelefono());
-                    System.out.println("t="+u.getTelefono());
                     m.setTitle("Menu Principal - "+priv+" - Usuario: ["+u.getNombre()+" "+u.getPaterno()+" "+u.getMaterno()+"]");
                     try {
                         this.ad("Inicio de sesión ("+priv+"): ["+u.getRuttrabajador()+"] "+u.getNombre()+" "+u.getPaterno()+" "+u.getMaterno());
