@@ -26,9 +26,10 @@ public class control {
                 JOptionPane.showMessageDialog(null, e);
         }
     }
-    public void addUserComplete(String ruttrabajador, String nombre, String paterno, String materno, int idcargo, String nombresalud, String nombreprevision, String fechaingreso, String tipocontrato, String ncargafamiliar, String sueldobase, String direccion, String telefono, String email, String estado){
+    
+    public void addUserComplete(String ruttrabajador, String nombre, String paterno, String materno, int idcargo, String nombresalud, String nombreprevision, String fechaingreso, String tipocontrato, String ncargafamiliar, String sueldobase, String direccion, String telefono, String email, String clave, String estado){
         try{
-            PreparedStatement pstm = conn.getConnection().prepareStatement("insert into trabajador (ruttrabajador, nombre, paterno, materno, idcargo, nombresalud, nombreprevision, fechaingreso, tipocontrato, ncargafamiliar, sueldobase, direccion, telefono, email, estado) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement pstm = conn.getConnection().prepareStatement("insert into trabajador (ruttrabajador, nombre, paterno, materno, idcargo, nombresalud, nombreprevision, fechaingreso, tipocontrato, ncargafamiliar, sueldobase, direccion, telefono, email, clave, estado) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             pstm.setString(1, ruttrabajador);
             pstm.setString(2, nombre);
             pstm.setString(3, paterno);
@@ -43,7 +44,8 @@ public class control {
             pstm.setString(12, direccion);
             pstm.setString(13, telefono);
             pstm.setString(14, email);
-            pstm.setString(15, estado);
+            pstm.setString(15, clave);
+            pstm.setString(16, estado);
             pstm.execute();
             pstm.close();
             }catch(SQLException e){
