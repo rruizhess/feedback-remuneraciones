@@ -36,7 +36,6 @@ public class Menu extends javax.swing.JFrame {
              this.btnagregarusuario.setEnabled(true);
              this.btnlistausuario.setEnabled(true);
              this.btnsucesos.setEnabled(true);
-             this.btnaddliquidacion.setEnabled(true);
          }
          else if(valor==2){
              this.btnuser.setText(nombre+" "+paterno);
@@ -105,10 +104,11 @@ public class Menu extends javax.swing.JFrame {
         txtapp.setBounds(320, 400, 680, 180);
         p.add(txtapp, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        btnuser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/user.png"))); // NOI18N
         btnuser.setText("Usuario");
 
+        btnclave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/changeclv.png"))); // NOI18N
         btnclave.setText("Cambiar Clave");
-        btnclave.setEnabled(false);
         btnclave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnclaveActionPerformed(evt);
@@ -116,6 +116,7 @@ public class Menu extends javax.swing.JFrame {
         });
         btnuser.add(btnclave);
 
+        btneditdatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/Edit-icon.png"))); // NOI18N
         btneditdatos.setText("Editar datos");
         btneditdatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,8 +125,10 @@ public class Menu extends javax.swing.JFrame {
         });
         btnuser.add(btneditdatos);
 
+        btnadministrativo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/admin.png"))); // NOI18N
         btnadministrativo.setText("Administrativo");
 
+        btnagregarusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/Add-user-icon.png"))); // NOI18N
         btnagregarusuario.setText("Agregar Usuario");
         btnagregarusuario.setEnabled(false);
         btnagregarusuario.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +138,7 @@ public class Menu extends javax.swing.JFrame {
         });
         btnadministrativo.add(btnagregarusuario);
 
+        btnlistausuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/Users-icon.png"))); // NOI18N
         btnlistausuario.setText("Mantenedor de Usuarios");
         btnlistausuario.setEnabled(false);
         btnlistausuario.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +151,7 @@ public class Menu extends javax.swing.JFrame {
         btnuser.add(btnadministrativo);
         btnuser.add(jSeparator2);
 
+        btncerrarsesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/logout.png"))); // NOI18N
         btncerrarsesion.setText("Cerrar Sesión");
         btncerrarsesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,6 +161,7 @@ public class Menu extends javax.swing.JFrame {
         btnuser.add(btncerrarsesion);
 
         btnsalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.ALT_MASK));
+        btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/salir.png"))); // NOI18N
         btnsalir.setText("Salir");
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,39 +172,43 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(btnuser);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/btnremuneraciones.png"))); // NOI18N
         jMenu2.setText("Remuneraciones");
 
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/Add-icon.png"))); // NOI18N
         jMenu5.setText("Nuevo");
 
+        btnaddcontrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/File-add-icon.png"))); // NOI18N
         btnaddcontrato.setText("Contrato");
         btnaddcontrato.setEnabled(false);
         jMenu5.add(btnaddcontrato);
 
+        btnaddfiniquito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/File-add-icon.png"))); // NOI18N
         btnaddfiniquito.setText("Finiquito");
         btnaddfiniquito.setEnabled(false);
         jMenu5.add(btnaddfiniquito);
 
+        btnaddliquidacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/File-add-icon.png"))); // NOI18N
         btnaddliquidacion.setText("Liquidacón");
         btnaddliquidacion.setEnabled(false);
-        btnaddliquidacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnaddliquidacionActionPerformed(evt);
-            }
-        });
         jMenu5.add(btnaddliquidacion);
 
         jMenu2.add(jMenu5);
 
+        btnmantenedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/File-icon.png"))); // NOI18N
         btnmantenedores.setText("Mantenedor");
 
+        btndelcontrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/File-edit-icon.png"))); // NOI18N
         btndelcontrato.setText("Contrato");
         btndelcontrato.setEnabled(false);
         btnmantenedores.add(btndelcontrato);
 
+        btndelfiniquito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/File-edit-icon.png"))); // NOI18N
         btndelfiniquito.setText("Finiquito");
         btndelfiniquito.setEnabled(false);
         btnmantenedores.add(btndelfiniquito);
 
+        btndelliquidacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/File-edit-icon.png"))); // NOI18N
         btndelliquidacion.setText("Liquidación");
         btndelliquidacion.setEnabled(false);
         btnmantenedores.add(btndelliquidacion);
@@ -207,8 +217,10 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/btncrear.png"))); // NOI18N
         jMenu4.setText("Crear");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/User-icon.png"))); // NOI18N
         jMenuItem1.setText("Crear Trabajador");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,6 +229,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem1);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/contrat-view.png"))); // NOI18N
         jMenuItem2.setText("Ver Contrato");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,6 +240,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/Eye-icon.png"))); // NOI18N
         jMenu3.setText("Ver");
 
         btnverLiquidacion.setText("Liquidación");
@@ -260,6 +274,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/application-settings-icon.png"))); // NOI18N
         jMenu1.setText("Actualizar datos");
 
         actualizarprevision.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
@@ -300,6 +315,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        btnayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/question-faq-icon.png"))); // NOI18N
         btnayuda.setText("Ayuda");
         btnayuda.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -312,6 +328,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btnsucesos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/log.png"))); // NOI18N
         btnsucesos.setText("Ver Log de sistema");
         btnsucesos.setEnabled(false);
         btnsucesos.addActionListener(new java.awt.event.ActionListener() {
@@ -322,6 +339,7 @@ public class Menu extends javax.swing.JFrame {
         btnayuda.add(btnsucesos);
         btnayuda.add(jSeparator1);
 
+        btnacerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/Info-icon.png"))); // NOI18N
         btnacerca.setText("Acerca de..");
         btnacerca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,7 +362,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addComponent(p, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
         );
 
         pack();
@@ -469,12 +487,6 @@ public class Menu extends javax.swing.JFrame {
         vc.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void btnaddliquidacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddliquidacionActionPerformed
-        Liquidacion li=new Liquidacion();
-        p.add(li);
-        li.show();
-    }//GEN-LAST:event_btnaddliquidacionActionPerformed
 
 
     /**
