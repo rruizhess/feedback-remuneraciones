@@ -1,0 +1,22 @@
+***************************************************
+                  DESARROLLADORES
+***************************************************
+	-> Cristian Pardo
+	-> Camilo Jorquera
+	-> Pablo Santana
+	-> Patricio Mora
+***************************************************
+               REGISTRO DE CAMBIOS
+***************************************************
+VERSION: 1.0.0
+-Se un sistema que permite calcular liquidaciones de sueldo.
+
+VERSION 1.O.1
+-Se cambia el sistema de base de datos por mysql para evitar demoras y fallos causados por derby.
+
+VERSION 1.0.5
+-Se agrega un sistema de logeo de usuario.
+-Se mejora la interfas grafica. es counstruida de nuevo.
+
+VERSION 1.0.5
+-Se agrega un sistema de sucesos de sistema.
