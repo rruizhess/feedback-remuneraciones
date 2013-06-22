@@ -86,6 +86,8 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
         cbdia = new javax.swing.JComboBox();
         cbmes = new javax.swing.JComboBox();
         txtaño = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        txtemail = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Trabajador"));
         setClosable(true);
@@ -182,6 +184,14 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
 
         txtaño.setText("201");
 
+        jLabel15.setText("E-mail");
+
+        txtemail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtemailActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -189,30 +199,36 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel5))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtrut, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                            .addComponent(txtnombre)
-                            .addComponent(txtpaterno)
-                            .addComponent(txtmaterno)
-                            .addComponent(txtsueldobase, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbestado, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(cbcargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(32, 32, 32)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel5))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtrut, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                                    .addComponent(txtnombre)
+                                    .addComponent(txtpaterno)
+                                    .addComponent(txtmaterno)
+                                    .addComponent(txtsueldobase, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbestado, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addComponent(cbcargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(txtemail))))
+                        .addGap(32, 32, 32))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -292,8 +308,10 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(txtaño, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtaño, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -316,7 +334,7 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnok)
                     .addComponent(btnagregar))
@@ -335,6 +353,7 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
             txtmaterno.setText("");
             txtsueldobase.setText("");
             txtfono.setText("");
+            txtemail.setText("");
             txtdireccion.setText("");
          }
     private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
@@ -400,6 +419,7 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
         String Mesingreso = Integer.toString(mesingreso);
         String fechaingreso = diaingreso+"-"+Mesingreso+"-"+añoingreso;
         String rut=txtrut.getText();
+        String email=txtemail.getText();
         String cargafamiliares = txtcargasfamiliares.getText();
         String nombre=txtnombre.getText();
         String appaterno=txtpaterno.getText();
@@ -423,7 +443,7 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
         String direccion = txtdireccion.getText();
         String estado = cbestado.getSelectedItem().toString();
         control c=new control();
-        c.updateUsuarioComplete(rut, nombre, appaterno, apmaterno, cargofinal, salud, prevision, fechaingreso, tcontrato, cargafamiliares, sb, direccion, fono, estado);
+        c.updateUsuarioComplete(rut, nombre, appaterno, apmaterno, cargofinal, salud, prevision, fechaingreso, tcontrato, cargafamiliares, sb, direccion, fono, email, estado);
         JOptionPane.showMessageDialog(this, "El usuario "+nombre+" "+appaterno+" se agregara a la base de datos.");
         this.erase();
     }//GEN-LAST:event_btnagregarActionPerformed
@@ -435,6 +455,10 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
     private void txtsueldobaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsueldobaseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtsueldobaseActionPerformed
+
+    private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemailActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnagregar;
@@ -452,6 +476,7 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -465,6 +490,7 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtaño;
     private javax.swing.JTextField txtcargasfamiliares;
     private javax.swing.JTextField txtdireccion;
+    private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtfono;
     private javax.swing.JTextField txtmaterno;
     private javax.swing.JTextField txtnombre;
