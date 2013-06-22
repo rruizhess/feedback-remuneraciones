@@ -60,7 +60,6 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -75,7 +74,6 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
         txtsueldobase = new javax.swing.JTextField();
         txtpaterno = new javax.swing.JTextField();
         txtmaterno = new javax.swing.JTextField();
-        cbestado = new javax.swing.JComboBox();
         cbcargo = new javax.swing.JComboBox();
         txtcargasfamiliares = new javax.swing.JTextField();
         txtdireccion = new javax.swing.JTextField();
@@ -88,6 +86,10 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
         txtaño = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         txtemail = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        txtclave1 = new javax.swing.JPasswordField();
+        txtclave2 = new javax.swing.JPasswordField();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Trabajador"));
         setClosable(true);
@@ -95,7 +97,7 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        btnok.setText("OK");
+        btnok.setText("Cancelar");
         btnok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnokActionPerformed(evt);
@@ -120,8 +122,6 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
         jLabel4.setText("Apellido Materno");
 
         jLabel11.setText("Sueldo Base");
-
-        jLabel14.setText("Estado");
 
         jLabel5.setText("Cargo");
 
@@ -159,8 +159,6 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
             }
         });
 
-        cbestado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "No Activo" }));
-
         cbcargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Recursos Humanos", "Empleado" }));
         cbcargo.setToolTipText("");
 
@@ -192,43 +190,39 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel17.setText("Clave");
+
+        jLabel18.setText("Repetir Clave");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel5))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtrut, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                                    .addComponent(txtnombre)
-                                    .addComponent(txtpaterno)
-                                    .addComponent(txtmaterno)
-                                    .addComponent(txtsueldobase, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbestado, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addComponent(cbcargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(txtemail))))
-                        .addGap(32, 32, 32))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18))
+                .addGap(18, 19, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtclave2)
+                    .addComponent(txtclave1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtrut, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                        .addComponent(txtnombre)
+                        .addComponent(txtpaterno)
+                        .addComponent(txtmaterno)
+                        .addComponent(txtsueldobase, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(cbcargo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtemail))
+                .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -294,24 +288,30 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
                     .addComponent(cbsalud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
                     .addComponent(jLabel7)
-                    .addComponent(cbestado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbprevision, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbprevision, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(cbcargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbdia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbcargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txtaño, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(cbdia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
                     .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel13)
+                        .addComponent(txtaño, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel17)
+                        .addComponent(txtclave1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(txtclave2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -334,7 +334,7 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnok)
                     .addComponent(btnagregar))
@@ -422,6 +422,7 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
         String email=txtemail.getText();
         String cargafamiliares = txtcargasfamiliares.getText();
         String nombre=txtnombre.getText();
+        String clave=txtclave2.getText();
         String appaterno=txtpaterno.getText();
         String apmaterno=txtmaterno.getText();
         String prevision = cbprevision.getSelectedItem().toString();
@@ -441,9 +442,10 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
         String tcontrato = cbcontrato.getSelectedItem().toString();
         String fono = txtfono.getText();
         String direccion = txtdireccion.getText();
-        String estado = cbestado.getSelectedItem().toString();
         control c=new control();
-        c.updateUsuarioComplete(rut, nombre, appaterno, apmaterno, cargofinal, salud, prevision, fechaingreso, tcontrato, cargafamiliares, sb, direccion, fono, email, estado);
+    
+        //c.updateUsuarioComplete(rut, nombre, appaterno, apmaterno, cargofinal, salud, prevision, fechaingreso, tcontrato, cargafamiliares, sb, direccion, fono, email, estado);
+        c.addUserComplete(rut, nombre, apmaterno, apmaterno, cargofinal, salud, prevision, fechaingreso, tcontrato, cargafamiliares, sb, direccion, fono, email, clave, "Activo");
         JOptionPane.showMessageDialog(this, "El usuario "+nombre+" "+appaterno+" se agregara a la base de datos.");
         this.erase();
     }//GEN-LAST:event_btnagregarActionPerformed
@@ -466,7 +468,6 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox cbcargo;
     private javax.swing.JComboBox cbcontrato;
     private javax.swing.JComboBox cbdia;
-    private javax.swing.JComboBox cbestado;
     private javax.swing.JComboBox cbmes;
     private javax.swing.JComboBox cbprevision;
     private javax.swing.JComboBox cbsalud;
@@ -475,9 +476,10 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -489,6 +491,8 @@ public class IngresoTrabajadores extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtaño;
     private javax.swing.JTextField txtcargasfamiliares;
+    private javax.swing.JPasswordField txtclave1;
+    private javax.swing.JPasswordField txtclave2;
     private javax.swing.JTextField txtdireccion;
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtfono;
