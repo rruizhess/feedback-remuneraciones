@@ -128,4 +128,6 @@ public class Usuario{
     public void setCargo(int cargo) {
         this.cargo = cargo;
     }
+
+   
 }
