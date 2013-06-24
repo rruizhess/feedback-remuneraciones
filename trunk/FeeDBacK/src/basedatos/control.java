@@ -342,7 +342,7 @@ public class control {
      
     public void addAsignacion(String monto,String requisito){
         try{
-            PreparedStatement pstm = conn.getConnection().prepareStatement("insert into asigancionfamiliar (monto,requisito) values(?,?)");
+            PreparedStatement pstm = conn.getConnection().prepareStatement("insert into asignacionfamiliar (monto,requisito) values(?,?)");
             pstm.setString(1, monto);
             pstm.setString(2, requisito);
             pstm.execute();
@@ -368,7 +368,7 @@ public class control {
     public Object [][] getAsignacion(){
         int posid = 0;
         try{
-            PreparedStatement pstm = conn.getConnection().prepareStatement("SELECT count(1) as total FROM asigancionfamiliar");
+            PreparedStatement pstm = conn.getConnection().prepareStatement("SELECT count(1) as total FROM asignacionfamiliar");
             ResultSet res = pstm.executeQuery();
             res.next();
             posid = res.getInt("total");
@@ -378,16 +378,14 @@ public class control {
         }
         Object[][] data = new String[posid][6];
         try{
-            PreparedStatement pstm = conn.getConnection().prepareStatement("SELECT id,monto,requisito FROM asignacionfamiliar ORDER BY id");
+            PreparedStatement pstm = conn.getConnection().prepareStatement("SELECT monto,requisito FROM asignacionfamiliar ORDER BY monto");
             ResultSet res = pstm.executeQuery();
             int increment = 0;
             while(res.next()){
-                String estId = res.getString("id");
                 String estMonto = res.getString("monto");
                 String estRequisito = res.getString("requisito");
-                data[increment][0] = estId;
-                data[increment][1] = estMonto;
-                data[increment][2] = estRequisito;
+                data[increment][0] = estMonto;
+                data[increment][1] = estRequisito;
                 increment++;
             }
             res.close();
@@ -398,7 +396,7 @@ public class control {
     }
      public void delAsignacion(String monto,String requisito){
         try{
-            PreparedStatement pstm = conn.getConnection().prepareStatement("delete from salud where mes='"+monto+"'and requisito='"+requisito+"'");
+            PreparedStatement pstm = conn.getConnection().prepareStatement("delete from asignacionfamiliar where mes='"+monto+"'and requisito='"+requisito+"'");
             pstm.execute();
             pstm.close();
         }catch(SQLException e){
