@@ -1,111 +1,263 @@
 package basedatos;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import GUIRecursosHumanos.Liquidacion;
 public class Conectliquidacion {
+    Liquidacion li=new Liquidacion();
+    Calculos ca=new Calculos();
+    String sueldobase;
+    String nombresalud;
+    String nombreprevision;
+    String mes=li.getMes();
+    String año=li.getAño();
+    String ruttrabajador=li.getRut();
+    String ncargafamiliar;
+    String valorsalud;
+    String valorprevision;
+    String valorparametro;
+    String nombreparametro=ca.getNombreparametro();
+    String tramo=ca.getTramo();
+    String asignacionmonto;
+    String asignacionrequisito;
     Conect conn;
    
     public Conectliquidacion(){
-        conn = new Conect();
+    
     }
-    public Object [] getTrabajador(String rut){
-        Object[] data = new String[15];
+    public Conectliquidacion DatosTrabajador(){
+        Conectliquidacion con=new Conectliquidacion();
+        Connection cn=null;
+        PreparedStatement pr=null;
+        ResultSet rs=null;
         try{
-
-            PreparedStatement pstm;
-                pstm = conn.getConnection().prepareStatement("SELECT * FROM trabajador WHERE ruttrabajador='"+rut+"'");
-            ResultSet res;
-                res = pstm.executeQuery();
-
-                if(res.next() ) {
-                        data[0] = res.getString("ruttrabajador");
-                        data[1] = res.getString("nombre");
-                        data[2] = res.getString("paterno");
-                        data[3] = res.getString("materno");
-                        data[4] = res.getString("idcargo");
-                        data[5] = res.getString("nombresalud");
-                        data[6] = res.getString("nombreprevision");
-                        data[7] = res.getString("fechaingreso");
-                        data[8] = res.getString("tipocontrato");
-                        data[9] = res.getString("ncargafamiliar");
-                        data[10] = res.getString("suedobase");
-                        data[11] = res.getString("direccion");
-                        data[12] = res.getString("estado");
-                        data[13] = res.getString("telefono");
-                        data[14] = res.getString("email");
-                }
-
-        }catch (Exception e){}
-        return data;
+            Liquidacion li=new Liquidacion();
+            Conect c=new Conect();
+            cn=c.getConnection();
+            String sql="SELECT * FROM trabajador WHERE ruttrabajador=?";
+            pr=cn.prepareStatement(sql);
+            pr.setString(1,li.getRut());
+            rs=pr.executeQuery();
+            while(rs.next()){
+                con.setSueldobase(rs.getString("sueldobase"));
+                con.setNombresalud(rs.getString("nombresalud"));
+                con.setNombreprevision(rs.getString("nombreprevision"));
+                con.setNumcargafamiliar(rs.getString("ncargafamiliar"));
+                break;
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+            con=null;
+        }finally{
+            try{
+                rs.close();
+                pr.close();
+                rs.close();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        return con;
     }
-     public Object [] getSalud(String nombresalud, String mes, String año){
-        Object[] data = new String[2];
+    //--------------------------------------------------------------------------------------------------------------------
+    public Conectliquidacion DatosSalud(){
+        Conectliquidacion con=new Conectliquidacion(); 
+        Connection cn=null;
+        PreparedStatement pr=null;
+        ResultSet rs=null;
         try{
-
-            PreparedStatement pstm;
-                pstm = conn.getConnection().prepareStatement("SELECT * FROM salud WHERE nombre='"+nombresalud+"' and mes='"+mes+"' and año='"+año+"");
-            ResultSet res;
-                res = pstm.executeQuery();
-
-                if(res.next() ) {
-                        data[0] = res.getString("nombre");
-                        data[1] = res.getString("valor");
-                }
-
-        }catch (Exception e){}
-        return data;
+            Conect c=new Conect();
+            cn=c.getConnection();
+            String sql=("select valor from salud where mes='"+mes+"' and '"+año+
+                    "'and nombre=(select nombresalud from trabajador where ruttrabajador='"+ruttrabajador+"'");
+            pr=cn.prepareStatement(sql);
+            rs=pr.executeQuery();
+            while(rs.next()){
+                con.setValorsalud(rs.getString("valor"));
+      
+                break;
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+            
+        }finally{
+            try{
+                rs.close();
+                pr.close();
+                rs.close();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        return con;
     }
-     
-      public Object [] getPrevision(String nombresalud, String mes, String año){
-        Object[] data = new String[2];
+    //--------------------------------------------------------------------------------------------------------------------
+    public Conectliquidacion DatosPrevision(){
+        Conectliquidacion con=new Conectliquidacion();
+        Connection cn=null;
+        PreparedStatement pr=null;
+        ResultSet rs=null;
         try{
-
-            PreparedStatement pstm;
-                pstm = conn.getConnection().prepareStatement("SELECT * FROM prevision WHERE nombre='"+nombresalud+"' and mes='"+mes+"' and año='"+año+"");
-            ResultSet res;
-                res = pstm.executeQuery();
-
-                if(res.next() ) {
-                        data[0] = res.getString("nombre");
-                        data[1] = res.getString("valor");
-                }
-
-        }catch (Exception e){}
-        return data;
+            Liquidacion li=new Liquidacion();
+            Conect c=new Conect();
+            cn=c.getConnection();
+            String sql=("select valor from prevision where mes='"+mes+"' and '"+año+
+                    "'and nombre=(select nombresalud from trabajador where ruttrabajador='"+ruttrabajador+"'");
+            pr=cn.prepareStatement(sql);
+            rs=pr.executeQuery();
+            while(rs.next()){
+                con.setValorprevision(rs.getString("valor"));
+      
+                break;
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+            con=null;
+        }finally{
+            try{
+                rs.close();
+                pr.close();
+                rs.close();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        return con;
     }
-    public Object [] getParametro(String nombresalud, String mes, String año){
-        Object[] data = new String[2];
+    
+    //--------------------------------------------------------------------------------------------------------------------
+
+    public Conectliquidacion DatosParametros(){
+        Conectliquidacion con=new Conectliquidacion();
+        Connection cn=null;
+        PreparedStatement pr=null;
+        ResultSet rs=null;
         try{
-
-            PreparedStatement pstm;
-                pstm = conn.getConnection().prepareStatement("SELECT * FROM parametro WHERE nombre='"+nombresalud+"' and mes='"+mes+"' and año='"+año+"");
-            ResultSet res;
-                res = pstm.executeQuery();
-
-                if(res.next() ) {
-                        data[0] = res.getString("nombre");
-                        data[1] = res.getString("valor");
-                }
-
-        }catch (Exception e){}
-        return data;
+            Liquidacion li=new Liquidacion();
+            Conect c=new Conect();
+            cn=c.getConnection();
+            String sql=("select valor from parametros where mes='"+mes+"' and '"+año+
+                    "'and nombre='"+nombreparametro+"'");
+            pr=cn.prepareStatement(sql);
+            rs=pr.executeQuery();
+            while(rs.next()){
+                con.setValorparametro(rs.getString("valor"));
+      
+                break;
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+            con=null;
+        }finally{
+            try{
+                rs.close();
+                pr.close();
+                rs.close();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        return con;
     }
-    public Object [] getAsignacion(String mes, String año){
-        Object[] data = new String[2];
+    //----------------------------------------------------------------------------------------------------------------------
+    public Conectliquidacion DatosAsigancion(){
+        Conectliquidacion con=new Conectliquidacion();
+        Connection cn=null;
+        PreparedStatement pr=null;
+        ResultSet rs=null;
         try{
-
-            PreparedStatement pstm;
-                pstm = conn.getConnection().prepareStatement("SELECT * FROM asignacion WHERE and mes='"+mes+"' and año='"+año+"");
-            ResultSet res;
-                res = pstm.executeQuery();
-
-                if(res.next() ) {
-                        data[0] = res.getString("monto");
-                        data[1] = res.getString("requisito");
-                }
-
-        }catch (Exception e){}
-        return data;
+            Liquidacion li=new Liquidacion();
+            Conect c=new Conect();
+            cn=c.getConnection();
+            String sql=("select valor from asignacionfamiliar where mes='"+mes+"' and '"+año+
+                    "'and tramo='"+tramo+"'");
+            pr=cn.prepareStatement(sql);
+            rs=pr.executeQuery();
+            while(rs.next()){
+                con.setTramo(rs.getString("valor"));
+      
+                break;
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+            con=null;
+        }finally{
+            try{
+                rs.close();
+                pr.close();
+                rs.close();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        return con;
     }
+
+    //----------------------------------------------------------------------------------------------------------------------
+    public String getSueldobase() {
+        return sueldobase;
+    }
+
+    public String getNcargafamiliar() {
+        return ncargafamiliar;
+    }
+
+    public String getNombreparametro() {
+        return nombreparametro;
+    }
+
+    public String getValorsalud() {
+        return valorsalud;
+    }
+
+    
+    public String getValorprevision() {
+        return valorprevision;
+    }
+
+    public String getAsignacionmonto() {
+        return asignacionmonto;
+    }
+
+    public String getAsignacionrequisito() {
+        return asignacionrequisito;
+    }
+    
+    //----------------------------------------------------------------------------------------------------------------------
+    private void setValorsalud(String valorsalud) {
+        this.valorsalud=valorsalud;
+    }
+
+    private void setSueldobase(String sueldobase) {
+        this.sueldobase=sueldobase;
+    }
+
+    private void setNombresalud(String nombresalud) {
+        this.nombresalud=nombresalud;
+    }
+
+    private void setNombreprevision(String nombreprevision) {
+        this.nombreprevision=nombreprevision;
+    }
+
+    private void setValorprevision(String valorprevision) {
+        this.valorprevision=valorprevision;
+    }
+
+    private void setTramo(String tramo) {
+        this.tramo=tramo; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setValorparametro(String valorparametro) {
+        this.valorparametro=valorparametro; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setNumcargafamiliar(String ncargafamiliar) {
+        this.ncargafamiliar=ncargafamiliar; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }
  
