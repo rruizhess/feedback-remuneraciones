@@ -28,7 +28,6 @@ public class IngresoParametro extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtnombre = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -39,6 +38,7 @@ public class IngresoParametro extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         txtaño = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
+        cbnombre = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
@@ -78,6 +78,8 @@ public class IngresoParametro extends javax.swing.JInternalFrame {
         jButton3.setForeground(new java.awt.Color(255, 0, 0));
         jButton3.setText("Eliminar");
 
+        cbnombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "IVA", "IUT", "UF", "IMM", "FHE" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -91,22 +93,21 @@ public class IngresoParametro extends javax.swing.JInternalFrame {
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtvalorprevision, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtaño, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(cbmes, 0, 115, Short.MAX_VALUE)
+                            .addComponent(cbnombre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtvalorprevision, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtaño, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,7 +115,7 @@ public class IngresoParametro extends javax.swing.JInternalFrame {
                 .addGap(0, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -202,7 +203,7 @@ public class IngresoParametro extends javax.swing.JInternalFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -211,7 +212,7 @@ public class IngresoParametro extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String mes= Integer.toString(cbmes.getSelectedIndex());
         String año= txtaño.getText();
-        String nombre= txtnombre.getText();
+        String nombre= cbnombre.getSelectedItem().toString();
         String valor= txtvalorprevision.getText();
         ctrl.addParametros(mes, año, nombre, valor);
         String[] columNames = {"Mes","Año","Nombre","Porcentaje"};
@@ -224,7 +225,7 @@ public class IngresoParametro extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String mes= Integer.toString(cbmes.getSelectedIndex());
         String año= txtaño.getText();
-        String nombre= txtnombre.getText();
+        String nombre= cbnombre.getSelectedItem().toString();
         String valor= txtvalorprevision.getText();
         ctrl.updateParametros(mes, año, nombre, valor);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -233,7 +234,6 @@ public class IngresoParametro extends javax.swing.JInternalFrame {
         fila = tabla.rowAtPoint(evt.getPoint());
         if (fila > -1){
             //cbmes.setSelectedIndex(getSelectedItem(tabla.getValueAt(fila, 0)));
-            txtnombre.setText(String.valueOf(tabla.getValueAt(fila, 2)));
             txtaño.setText(String.valueOf(tabla.getValueAt(fila, 1)));
             txtvalorprevision.setText(String.valueOf(tabla.getValueAt(fila, 3)));
         }
@@ -241,6 +241,7 @@ public class IngresoParametro extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cbmes;
+    private javax.swing.JComboBox cbnombre;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -253,7 +254,6 @@ public class IngresoParametro extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;
     private javax.swing.JTextField txtaño;
-    private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtvalorprevision;
     // End of variables declaration//GEN-END:variables
 }
