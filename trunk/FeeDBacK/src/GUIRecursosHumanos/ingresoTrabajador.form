@@ -57,7 +57,7 @@
                   <Component id="btncancel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnguardar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="15" max="32767" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -112,8 +112,8 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtrut" min="-2" pref="120" max="-2" attributes="0"/>
                               <Component id="txtemail" min="-2" pref="240" max="-2" attributes="0"/>
+                              <Component id="txtrut" min="-2" pref="109" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
