@@ -65,7 +65,7 @@ public class Liquidacion extends javax.swing.JInternalFrame {
         txtaño = new javax.swing.JTextField();
         txtnumerohorasextras = new javax.swing.JTextField();
         btnbuscar = new javax.swing.JButton();
-        txtrut = new javax.swing.JTextField();
+        cbrut = new javax.swing.JComboBox();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -142,7 +142,6 @@ public class Liquidacion extends javax.swing.JInternalFrame {
         btnmodificardatos = new javax.swing.JButton();
         btndescartar = new javax.swing.JButton();
         btnguardar = new javax.swing.JButton();
-        cbrut = new javax.swing.JComboBox();
         txttotalpagar = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
 
@@ -185,7 +184,7 @@ public class Liquidacion extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(txtrut, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbrut, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -221,7 +220,7 @@ public class Liquidacion extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtrut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbrut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -685,8 +684,6 @@ public class Liquidacion extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cbrut, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(btncalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnmodificardatos, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -712,8 +709,7 @@ public class Liquidacion extends javax.swing.JInternalFrame {
                     .addComponent(btncalcular)
                     .addComponent(btnmodificardatos)
                     .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btndescartar)
-                    .addComponent(cbrut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btndescartar))
                 .addGap(32, 32, 32)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -858,7 +854,6 @@ public class Liquidacion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtnumerohorasextras;
     private javax.swing.JTextField txtpaterno;
     private javax.swing.JTextField txtprevision;
-    private javax.swing.JTextField txtrut;
     private javax.swing.JTextField txtsalud;
     private javax.swing.JTextField txtscesantia;
     private javax.swing.JTextField txtsueldobase;
