@@ -17,10 +17,6 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author cepardov
- */
 public class ingresoTrabajador extends javax.swing.JInternalFrame {
     control ctrl=new control();
     Login log=new Login();
@@ -29,9 +25,6 @@ public class ingresoTrabajador extends javax.swing.JInternalFrame {
     String mat;
     String priv;
     String nom;
-    /**
-     * Creates new form ingresoTrabajador
-     */
     public ingresoTrabajador(String rut, String nombre, String paterno, String materno, String tipo) {
         initComponents();
         id=rut;
@@ -42,6 +35,20 @@ public class ingresoTrabajador extends javax.swing.JInternalFrame {
         getPrevision();
         getSalud();
         getCargos();        
+    }
+    public void erase(){
+    txtanio.setText("");
+    txtdireccion.setText("");
+    txtemail.setText("");
+    txtmaterno.setText("");
+    txtnombre.setText("");
+    txtnumcargafam.setText("");
+    txtparterno.setText("");
+    txtrut.setText("");
+    txtsb.setText("");
+    txttelefono.setText("");
+    this.passin.setText("");
+    this.passrein.setText("");
     }
     public void getPrevision(){
         try{
@@ -478,6 +485,7 @@ public class ingresoTrabajador extends javax.swing.JInternalFrame {
                 Logger.getLogger(ingresoTrabajador.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        this.erase();
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
