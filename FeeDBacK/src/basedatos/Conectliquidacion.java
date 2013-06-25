@@ -18,8 +18,8 @@ public class Conectliquidacion {
     String valorsalud;
     String valorprevision;
     String valorparametro;
-    String nombreparametro=ca.getNombreparametro();
-    String tramo=ca.getTramo();
+//    String nombreparametro=ca.getNombreparametro();
+    String tramo;
     String asignacionmonto;
     String asignacionrequisito;
     Conect conn;
@@ -129,40 +129,67 @@ public class Conectliquidacion {
     
     //--------------------------------------------------------------------------------------------------------------------
 
-    public Conectliquidacion DatosParametros(){
-        Conectliquidacion con=new Conectliquidacion();
-        Connection cn=null;
-        PreparedStatement pr=null;
-        ResultSet rs=null;
-        try{
-            Liquidacion li=new Liquidacion();
-            Conect c=new Conect();
-            cn=c.getConnection();
-            String sql=("select valor from parametros where mes='"+mes+"' and '"+año+
-                    "'and nombre='"+nombreparametro+"'");
-            pr=cn.prepareStatement(sql);
-            rs=pr.executeQuery();
-            while(rs.next()){
-                con.setValorparametro(rs.getString("valor"));
-      
-                break;
-            }
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-            con=null;
-        }finally{
-            try{
-                rs.close();
-                pr.close();
-                rs.close();
-            }catch(SQLException e){
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
-        return con;
-    }
+//      Trabajador buscar = new Trabajador();
+////en el boton search
+//txtnombre.setText(buscar.buscar_trabajadores_Rut(txtrut.getText())[0]);
+//txtdireccion.setText(buscar.buscar_trabajadores_Rut(txtrut.getText())[1]);
+//txtestadocivil.setText(buscar.buscar_trabajadores_Rut(txtrut.getText())[2]);
+//txtcargasfamiliares.setText(buscar.buscar_trabajadores_Rut(txtrut.getText())[3]);
+//txtsueldobase.setText(buscar.buscar_trabajadores_Rut(txtrut.getText())[4]);
+////metodo de busqueda rut a traves de arreglo va en 
+//        public String[] buscar_trabajadores_Rut(String rut){
+//            String[] datos = new String[1];
+//            Calculos cal=new Calculos();
+//                try{
+//                    Conect c=new Conect();
+//                    
+//                    PreparedStatement pstm = c.getConnection().prepareStatement("select valor from parametros where mes='"+mes+"'and '"+año+
+//                            "' and nombre='"+nombreparametro+"'");
+//                    ResultSet res = pstm.executeQuery();
+//                    if(res.next()){
+//                    datos[0] = res.getString("valor");
+//                    
+//                    
+//                }
+//                }catch (Exception e){}
+//            return datos;
+//        }
+//    
+    
+//    public Conectliquidacion DatosParametros(){
+//        Conectliquidacion con=new Conectliquidacion();
+//        Connection cn=null;
+//        PreparedStatement pr=null;
+//        ResultSet rs=null;
+//        try{
+//            Liquidacion li=new Liquidacion();
+//            Conect c=new Conect();
+//            cn=c.getConnection();
+//            String sql=("select valor from parametros where mes='"+mes+"' and '"+año+
+//                    "'and nombre='"+nombreparametro+"'");
+//            pr=cn.prepareStatement(sql);
+//            rs=pr.executeQuery();
+//            while(rs.next()){
+//                con.setValorparametro(rs.getString("valor"));
+//      
+//                break;
+//            }
+//        }catch(SQLException e){
+//            JOptionPane.showMessageDialog(null, e);
+//            con=null;
+//        }finally{
+//            try{
+//                rs.close();
+//                pr.close();
+//                rs.close();
+//            }catch(SQLException e){
+//                JOptionPane.showMessageDialog(null, e);
+//            }
+//        }
+//        return con;
+//    }
     //----------------------------------------------------------------------------------------------------------------------
-    public Conectliquidacion DatosAsigancion(){
+    public Conectliquidacion DatosAsigancion(String tramo){
         Conectliquidacion con=new Conectliquidacion();
         Connection cn=null;
         PreparedStatement pr=null;
@@ -204,9 +231,9 @@ public class Conectliquidacion {
         return ncargafamiliar;
     }
 
-    public String getNombreparametro() {
-        return nombreparametro;
-    }
+//    public String getNombreparametro() {
+//        return nombreparametro;
+//    }
 
     public String getValorsalud() {
         return valorsalud;
@@ -223,6 +250,10 @@ public class Conectliquidacion {
 
     public String getAsignacionrequisito() {
         return asignacionrequisito;
+    }
+
+    public String getValorparametro() {
+        return valorparametro;
     }
     
     //----------------------------------------------------------------------------------------------------------------------
@@ -247,7 +278,7 @@ public class Conectliquidacion {
     }
 
     private void setTramo(String tramo) {
-        this.tramo=tramo; //To change body of generated methods, choose Tools | Templates.
+        this.tramo=tramo; 
     }
 
     private void setValorparametro(String valorparametro) {
@@ -257,6 +288,11 @@ public class Conectliquidacion {
     private void setNumcargafamiliar(String ncargafamiliar) {
         this.ncargafamiliar=ncargafamiliar; //To change body of generated methods, choose Tools | Templates.
     }
+//
+//    private void setParametro(String parametro) {
+//       this.nombreparametro=parametro;
+//        
+//    }
 
     
 }

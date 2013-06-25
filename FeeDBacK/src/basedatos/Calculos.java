@@ -7,25 +7,13 @@ public class Calculos {
     int sb=Integer.parseInt(con.getSueldobase());
     int he=Integer.parseInt(li.getNhorasextras());
     int cf=Integer.parseInt(con.getNcargafamiliar());
-    final int imm=165000;
-    final double fhe=0.007777;
+    int imm=Integer.parseInt(con.getValorparametro());
+    double fhe=0.007777;
     String nombreparametro=null;
     String tramo=null;
 //-----------------------------------------------------------------------------------------------------------------------
-    public String getNombreparametro() {
-        return nombreparametro;
-    }
-
-    public String getTramo() {
-        return tramo;
-    }
-
     public void setNombreparametro(String nombreparametro) {
         this.nombreparametro = nombreparametro;
-    }
-
-    public void setTramo(String tramo) {
-        this.tramo = tramo;
     }
     
     
@@ -35,6 +23,7 @@ public class Calculos {
  }   
 
      public int gratificacion(){
+         nombreparametro="imm";
      return (int)(imm*4.75)/12;
  }
  
@@ -46,57 +35,56 @@ public class Calculos {
  return this.calculodiastrabajados()+this.gratificacion()+this.horasextras();
  }
     
- //------------------------------------------------------------------------------------------------------------
- public class Descuentos {
-    int imponible;
+ //descuentos------------------------------------------------------------------------------------------------------------
+
     final double valorafp=Integer.parseInt(con.getValorprevision());
     final double valorfonasa=Integer.parseInt(con.getValorsalud());
-
-    public Descuentos(int imponible) {
-        this.imponible = imponible;
-    }
         
     public int afp(){
-    return (int)(valorafp*imponible);
+    return (int)(valorafp*this.sumaimponible());
     }
     
     public int fonasa(){
-    return (int)(valorfonasa*imponible);
+    return (int)(valorfonasa*this.sumaimponible());
     }
     
     public int sumaDescuento(){
     
     return this.afp()+this.fonasa();
     }
-}
+
 //---------------------------------------------------------------------------------------------------------------
-// public class NoImponible {
-//
-//    int imponible,cf;
-//    Object[][] dtPer;
-//        private int setRequisito;
-//        private int setMonto;
-//
-//    public NoImponible(int imponible, int cf) {
-//        this.imponible = imponible;
-//        this.cf = cf;
-//    }
-//
-//    public NoImponible() {
-//        throw new UnsupportedOperationException("Not supported yet.");
-//    }
-//   
+ 
+       int requisito=0;
+        
+
+   
 //    public int cargaFamiliar(){
-//    Conectliquidacion con=new Conectliquidacion();
 //    
-//    if(imponible< setRequisito)
-//      return setMonto*cf;
+//      con.DatosAsigancion("1");
+//      requisito=Integer.parseInt(con.getAsignacionrequisito());
+//      if(this.sumaimponible()< requisito){
+//            return (Integer.parseInt(con.getAsignacionmonto())*cf);
+//            con.DatosAsigancion("2");
+//            requisito=Integer.parseInt(con.getAsignacionrequisito());
+//      }
+//      else if(this.sumaimponible()<requisito){
+//            return (Integer.parseInt(con.getAsignacionmonto())*cf);
+//            //con.DatosAsigancion("3");
+//      requisito=Integer.parseInt(con.getAsignacionrequisito());
+//      }
+//      if (this.sumaimponible()<requisito){
+//            return (Integer.parseInt(con.getAsignacionmonto())*cf);
+//      }
+//      else
+//        return 0;
 //    }
-//   
+   
 //    public int sumaNoImponible(){
-//    return this.cargaFamiliar()+this.imponible;
+//    return this.cargaFamiliar()+this.sumaimponible();
 //    }
-//    
+    
+        
     
 }
 
