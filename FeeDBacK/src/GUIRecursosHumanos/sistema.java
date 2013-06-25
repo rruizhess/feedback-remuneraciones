@@ -25,7 +25,7 @@ public class sistema {
      * *********************************************************
      */
     String appName="Remuneraciones";
-    String appVersion="1.6 rev14";
+    String appVersion="1.7 rev24";
     String appFase="-alpha1";
     
     

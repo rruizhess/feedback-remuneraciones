@@ -4,19 +4,102 @@
  */
 package GUIRecursosHumanos;
 
+import Login.Login;
+import basedatos.control;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author cepardov
  */
 public class ingresoTrabajador extends javax.swing.JInternalFrame {
-
+    control ctrl=new control();
+    Login log=new Login();
+    String id;
+    String pat;
+    String mat;
+    String priv;
+    String nom;
     /**
      * Creates new form ingresoTrabajador
      */
-    public ingresoTrabajador() {
+    public ingresoTrabajador(String rut, String nombre, String paterno, String materno, String tipo) {
         initComponents();
+        id=rut;
+        nom=nombre;
+        pat=paterno;
+        mat=materno;
+        priv=tipo;
+        getPrevision();
+        getSalud();
+        getCargos();        
     }
-
+    public void getPrevision(){
+        try{
+            DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/dbsisremuneraciones", "root", "");
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery("SELECT distinct nombre FROM prevision");
+            modeloCombo.addElement("Seleccione");
+            while (rs.next()) {
+                modeloCombo.addElement(rs.getObject("nombre"));
+            }
+            rs.close();
+            this.cbprevision.setModel(modeloCombo);
+        } catch (SQLException ex) {
+            Logger.getLogger(ingresoTrabajador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ingresoTrabajador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void getSalud(){
+         try{
+            DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/dbsisremuneraciones", "root", "");
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery("SELECT distinct nombre FROM salud");
+            modeloCombo.addElement("Seleccione");
+            while (rs.next()) {
+                modeloCombo.addElement(rs.getObject("nombre"));
+            }
+            rs.close();
+            this.cbsalud.setModel(modeloCombo);
+        } catch (SQLException ex) {
+            Logger.getLogger(ingresoTrabajador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ingresoTrabajador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void getCargos(){
+        try{
+            DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/dbsisremuneraciones", "root", "");
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery("SELECT distinct nombre FROM cargo");
+            modeloCombo.addElement("Seleccione");
+            while (rs.next()) {
+                modeloCombo.addElement(rs.getObject("nombre"));
+            }
+            rs.close();
+            this.cbcargo.setModel(modeloCombo);
+        } catch (SQLException ex) {
+            Logger.getLogger(ingresoTrabajador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ingresoTrabajador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -154,27 +237,21 @@ public class ingresoTrabajador extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Tipo Cargo");
 
-        cbcargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel9.setText("Sueldo Base");
 
         jLabel10.setText("Tipo Contrato");
 
-        cbcontrato.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbcontrato.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Definido", "Indefinido" }));
 
         jLabel11.setText("Num. Carga Familiares");
 
         jLabel12.setText("Salud");
 
-        cbsalud.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel13.setText("Previsión");
-
-        cbprevision.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel14.setText("Fecha de Ingreso");
 
-        cbdia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dia", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
+        cbdia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dia", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         cbmes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 
@@ -282,12 +359,22 @@ public class ingresoTrabajador extends javax.swing.JInternalFrame {
                     .addComponent(passin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16)
                     .addComponent(passrein, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         btncancel.setText("Cancelar");
+        btncancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelActionPerformed(evt);
+            }
+        });
 
         btnguardar.setText("Guardar");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -321,11 +408,83 @@ public class ingresoTrabajador extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btncancel)
                     .addComponent(btnguardar))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        // TODO add your handling code here:
+        String rut=this.txtrut.getText();
+        String nombre=this.txtnombre.getText();
+        String paterno=this.txtparterno.getText();
+        String materno=this.txtmaterno.getText();
+        String direccion=this.txtdireccion.getText();
+        String telefono=this.txttelefono.getText();
+        String email=this.txtemail.getText();
+        int cargo=this.cbcargo.getSelectedIndex();
+        String sueldobase=this.txtsb.getText();
+        String tipocontrato=this.cbcontrato.getSelectedItem().toString();
+        String cargafamiliar=this.txtnumcargafam.getText();
+        String salud=this.cbsalud.getSelectedItem().toString();
+        String prevision=this.cbprevision.getSelectedItem().toString();
+        int fdia=this.cbdia.getSelectedIndex();
+        int fmes=this.cbmes.getSelectedIndex();
+        String anio=this.txtanio.getText();
+        String clave1=this.passin.getText();
+        String clave2=this.passrein.getText();
+        if(!clave1.equals(clave2)){
+            JOptionPane.showMessageDialog(this, "Las claves ingresadas no coinciden.");
+        }
+        else if (clave1.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe especificar una calve");
+        }
+        else if (rut.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Falta rut");
+        }
+        else if (nombre.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Falta nombre");
+        }
+        else if (paterno.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Falta un apellido");
+        }
+        else if (tipocontrato=="Seleccione"){
+            JOptionPane.showMessageDialog(this, "Debe especificar tipo de contrato");
+        }
+        else if (salud=="Seleccione"){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar tipo de salud");
+        }
+        else if (prevision=="Seleccione"){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar tipo de previsión");
+        }
+        else if (cargo==0){
+            JOptionPane.showMessageDialog(this, "Debe especificar un cargo");
+        }
+        else if (fdia==0){
+            JOptionPane.showMessageDialog(this, "Debe selecionar dia");
+        }
+        else if (fmes==0){
+            JOptionPane.showMessageDialog(this, "Debe seleccionar mes");
+        }
+        else if (anio.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe especificar año");
+        }
+        else {
+            ctrl.addUser(rut, nombre, paterno, materno, cargo, salud, prevision, fdia+"-"+fmes+"-"+anio, tipocontrato, cargafamiliar, sueldobase, direccion, telefono, email, clave2);
+            try {
+                log.ad("Registro de usuarios por ["+priv+"] ["+id+"] "+nom+" "+pat+" a usuario: "+rut+" "+nombre+" "+paterno+" como "+cargo);
+            } catch (IOException ex) {
+                Logger.getLogger(ingresoTrabajador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnguardarActionPerformed
+
+    private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btncancelActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncancel;
     private javax.swing.JButton btnguardar;
