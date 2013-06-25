@@ -57,7 +57,7 @@
                   <Component id="btncancel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnguardar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -314,12 +314,7 @@
         <Component class="javax.swing.JComboBox" name="cbcargo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
         </Component>
@@ -338,11 +333,10 @@
         <Component class="javax.swing.JComboBox" name="cbcontrato">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="3">
+                <StringItem index="0" value="Seleccione"/>
+                <StringItem index="1" value="Definido"/>
+                <StringItem index="2" value="Indefinido"/>
               </StringArray>
             </Property>
           </Properties>
@@ -362,12 +356,7 @@
         <Component class="javax.swing.JComboBox" name="cbsalud">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
         </Component>
@@ -379,12 +368,7 @@
         <Component class="javax.swing.JComboBox" name="cbprevision">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
         </Component>
@@ -396,7 +380,7 @@
         <Component class="javax.swing.JComboBox" name="cbdia">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="33">
+              <StringArray count="32">
                 <StringItem index="0" value="Dia"/>
                 <StringItem index="1" value="01"/>
                 <StringItem index="2" value="02"/>
@@ -429,7 +413,6 @@
                 <StringItem index="29" value="29"/>
                 <StringItem index="30" value="30"/>
                 <StringItem index="31" value="31"/>
-                <StringItem index="32" value=" "/>
               </StringArray>
             </Property>
           </Properties>
@@ -494,7 +477,7 @@
                       <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="passrein" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace pref="16" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -520,11 +503,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncancelActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnguardar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnguardarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

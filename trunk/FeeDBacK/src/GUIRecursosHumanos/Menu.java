@@ -15,6 +15,7 @@ public class Menu extends javax.swing.JFrame {
     String mat=null;
     String dir=null;
     String tel=null;
+    String priv=null;
   
     public Menu() {
         initComponents();
@@ -29,11 +30,11 @@ public class Menu extends javax.swing.JFrame {
         mat = materno;
         dir = direccion;
         tel = telefono;
+        priv = tipo;
         this.txtapp.setText(sis.getAppName()+" V"+sis.getAppVersion());
         this.btnuser.setText(nombre+" "+paterno);
          if(valor==1){
              this.btnclave.setEnabled(true);
-             this.btnagregarusuario.setEnabled(true);
              this.btnlistausuario.setEnabled(true);
              this.btnsucesos.setEnabled(true);
          }
@@ -56,7 +57,6 @@ public class Menu extends javax.swing.JFrame {
         btnclave = new javax.swing.JMenuItem();
         btneditdatos = new javax.swing.JMenuItem();
         btnadministrativo = new javax.swing.JMenu();
-        btnagregarusuario = new javax.swing.JMenuItem();
         btnlistausuario = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         btncerrarsesion = new javax.swing.JMenuItem();
@@ -127,16 +127,6 @@ public class Menu extends javax.swing.JFrame {
 
         btnadministrativo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/admin.png"))); // NOI18N
         btnadministrativo.setText("Administrativo");
-
-        btnagregarusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/Add-user-icon.png"))); // NOI18N
-        btnagregarusuario.setText("Agregar Usuario");
-        btnagregarusuario.setEnabled(false);
-        btnagregarusuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnagregarusuarioActionPerformed(evt);
-            }
-        });
-        btnadministrativo.add(btnagregarusuario);
 
         btnlistausuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/Users-icon.png"))); // NOI18N
         btnlistausuario.setText("Mantenedor de Usuarios");
@@ -366,7 +356,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
+            .addComponent(p, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
         );
 
         pack();
@@ -389,13 +379,6 @@ public class Menu extends javax.swing.JFrame {
         p.add(ec);
         ec.show();
     }//GEN-LAST:event_btnclaveActionPerformed
-
-    private void btnagregarusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarusuarioActionPerformed
-        // TODO add your handling code here:
-        adduser u=new adduser();
-        p.add(u);
-        u.show();
-    }//GEN-LAST:event_btnagregarusuarioActionPerformed
 
     private void btnlistausuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlistausuarioActionPerformed
         // TODO add your handling code here:
@@ -473,7 +456,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btneditdatosActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        ingresoTrabajador it=new ingresoTrabajador();
+        ingresoTrabajador it=new ingresoTrabajador(rutid, nom, pat, mat, priv);
         p.add(it);
         it.show();
         // TODO add your handling code here:
@@ -551,7 +534,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnaddcontrato;
     private javax.swing.JMenuItem btnaddfiniquito;
     private javax.swing.JMenu btnadministrativo;
-    private javax.swing.JMenuItem btnagregarusuario;
     private javax.swing.JMenu btnayuda;
     private javax.swing.JMenuItem btncerrarsesion;
     private javax.swing.JMenuItem btnclave;

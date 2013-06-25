@@ -9,34 +9,17 @@ public class control {
     
     public control(){
         conn = new Conect();
-    }
-    public void addUser(String ruttrabajador, String nombre, String paterno, String materno, String clave, int idcargo){
+    }    
+    public void addUser(String ruttrabajador, String nombre, String paterno, String materno, int idcargo, String nombresalud, String nombreprevision, String fechaingreso, String tipocontrato, String ncargafamiliar, String sueldobase, String direccion, String telefono, String email, String clave){
         try{
-            PreparedStatement pstm = conn.getConnection().prepareStatement("insert into trabajador (ruttrabajador, nombre, paterno, materno, clave, idcargo) values(?,?,?,?,?,?)");
-            pstm.setString(1, ruttrabajador);
-            pstm.setString(2, nombre);
-            pstm.setString(3, paterno);
-            pstm.setString(4, materno);
-            pstm.setString(5, clave);
-            pstm.setInt(6, idcargo);
-            pstm.execute();
-            pstm.close();
-            JOptionPane.showMessageDialog(null, "El el usuario registrado correctamente");
-            }catch(SQLException e){
-                JOptionPane.showMessageDialog(null, e);
-        }
-    }
-    
-    public void addUserComplete(String ruttrabajador, String nombre, String paterno, String materno, int idcargo, String nombresalud, String nombreprevision, String fechaingreso, String tipocontrato, String ncargafamiliar, String sueldobase, String direccion, String telefono, String email, String clave, String estado){
-        try{
-            PreparedStatement pstm = conn.getConnection().prepareStatement("insert into trabajador (ruttrabajador, nombre, paterno, materno, idcargo, nombresalud, nombreprevision, fechaingreso, tipocontrato, ncargafamiliar, sueldobase, direccion, telefono, email, clave, estado) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement pstm = conn.getConnection().prepareStatement("insert into trabajador (ruttrabajador, nombre, paterno, materno, idcargo, nombresalud, nombreprevision, fechaingreso, tipocontrato, ncargafamiliar, sueldobase, direccion, telefono, email, clave) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             pstm.setString(1, ruttrabajador);
             pstm.setString(2, nombre);
             pstm.setString(3, paterno);
             pstm.setString(4, materno);
             pstm.setInt(5, idcargo);
             pstm.setString(6, nombresalud);
-            pstm.setString(7, fechaingreso);
+            pstm.setString(7, nombreprevision);
             pstm.setString(8, fechaingreso);
             pstm.setString(9, tipocontrato);
             pstm.setString(10, ncargafamiliar);
@@ -45,9 +28,9 @@ public class control {
             pstm.setString(13, telefono);
             pstm.setString(14, email);
             pstm.setString(15, clave);
-            pstm.setString(16, estado);
             pstm.execute();
             pstm.close();
+            JOptionPane.showMessageDialog(null, "El el usuario registrado correctamente");
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, e);
         }
