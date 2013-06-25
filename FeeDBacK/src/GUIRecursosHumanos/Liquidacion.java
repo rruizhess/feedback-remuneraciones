@@ -19,12 +19,11 @@ import javax.swing.DefaultComboBoxModel;
  * @author Lancaster
  */
 public class Liquidacion extends javax.swing.JInternalFrame {
-    
-             String diastrabajados = this.txtdiastrabajados.getText();
-             String nhorasextras = this.txtnumerohorasextras.getText();
-             String rut = this.cbrut.getSelectedItem().toString();
-             String año = this.txtaño.getText();
-             String mes;
+    String diastrabajados = this.txtdiastrabajados.getText();
+    String nhorasextras = this.txtnumerohorasextras.getText();
+    String rut = this.cbrut.getSelectedItem().toString();
+    String año = this.txtaño.getText();
+    String mes;
 
     public String getMes() {
         return mes;
