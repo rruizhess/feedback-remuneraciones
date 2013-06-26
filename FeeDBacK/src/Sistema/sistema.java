@@ -1,4 +1,9 @@
 package Sistema;
+
+/**
+ * @author cepardov <cepardov@gmail.com>
+ */
+
 public class sistema {
      /***********************************************************
      * Aqui se epecifica los detalles de la aplicacion
@@ -26,7 +31,7 @@ public class sistema {
      */
     String appName="Remuneraciones";
     String appVersion="1.7 rev27";
-    String appFase="-alpha1";
+    String appFase="-beta1";
     
     
     

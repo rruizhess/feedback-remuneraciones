@@ -469,4 +469,35 @@ public class control {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    public Object [][] getCargos(){
+        int posid = 0;
+        try{
+            PreparedStatement pstm = conn.getConnection().prepareStatement("SELECT count(1) as total FROM cargo");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            posid = res.getInt("total");
+            res.close();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e);
+        }
+        Object[][] data = new String[posid][3];
+        try{
+            PreparedStatement pstm = conn.getConnection().prepareStatement("SELECT idcargo, nombre, sueldo FROM cargo ORDER BY idcargo");
+            ResultSet res = pstm.executeQuery();
+            int increment = 0;
+            while(res.next()){
+                String estIdcargo = res.getString("idcargo");
+                String estNombre = res.getString("nombre");
+                String estSueldo = res.getString("sueldo");
+                data[increment][0] = estIdcargo;
+                data[increment][1] = estNombre;
+                data[increment][2] = estSueldo;
+                increment++;
+            }
+            res.close();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e);
+        }
+        return data;
+    }
 }

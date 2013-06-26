@@ -4,9 +4,12 @@ import Login.Login;
 import basedatos.Usuario;
 import basedatos.control;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import javax.swing.JOptionPane;
+
+/**
+ * @author cepardov <cepardov@gmail.com>
+ */
 
 public class editarclave extends javax.swing.JInternalFrame {
     String rutid=null;

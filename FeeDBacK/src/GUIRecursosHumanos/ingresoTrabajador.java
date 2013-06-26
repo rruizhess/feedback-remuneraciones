@@ -4,9 +4,8 @@
  */
 package GUIRecursosHumanos;
 
-/*******************
- * @author Cristian Pardo Velasquez <cepardov@gmail.com>
- * @date 25-06-2013
+/**
+ * @author cepardov <cepardov@gmail.com>
  */
 
 import Login.Login;

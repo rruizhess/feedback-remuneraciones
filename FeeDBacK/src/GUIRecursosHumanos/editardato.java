@@ -3,6 +3,10 @@ package GUIRecursosHumanos;
 import Login.Login;
 import basedatos.control;
 
+/**
+ * @author cepardov <cepardov@gmail.com>
+ */
+
 public class editardato extends javax.swing.JInternalFrame {
     String rutid=null;
     Login l=new Login();

@@ -1,14 +1,13 @@
 package GUIRecursosHumanos;
 
-/*******************
- * @author Cristian Pardo Velasquez <cepardov@gmail.com>
- * @date 25-06-2013
+/**
+ * @author cepardov <cepardov@gmail.com>
  */
 
 import Sistema.sistema;
 import Login.Login;
 import java.io.IOException;
-import java.util.logging.*;;
+import java.util.logging.*;
 
 public class Menu extends javax.swing.JFrame {
     sistema sis=new sistema();
@@ -81,6 +80,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         btncreartrabajador = new javax.swing.JMenuItem();
+        btncargo = new javax.swing.JMenuItem();
         btnvercontrato = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         btnverLiquidacion = new javax.swing.JMenuItem();
@@ -241,6 +241,14 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(btncreartrabajador);
 
+        btncargo.setText("Gestor de cargos");
+        btncargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncargoActionPerformed(evt);
+            }
+        });
+        jMenu4.add(btncargo);
+
         btnvercontrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/contrat-view.png"))); // NOI18N
         btnvercontrato.setText("Ver Contrato");
         btnvercontrato.addActionListener(new java.awt.event.ActionListener() {
@@ -374,7 +382,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 664, Short.MAX_VALUE)
+            .addComponent(p, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
         );
 
         pack();
@@ -508,6 +516,14 @@ public class Menu extends javax.swing.JFrame {
        at.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void btncargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargoActionPerformed
+        // TODO add your handling code here:
+        crearCargo cc=new crearCargo();
+        cc.setTitle("Gestor de cargos");
+        p.add(cc);
+        cc.show();
+    }//GEN-LAST:event_btncargoActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -561,6 +577,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnaddfiniquito;
     private javax.swing.JMenu btnadministrativo;
     private javax.swing.JMenu btnayuda;
+    private javax.swing.JMenuItem btncargo;
     private javax.swing.JMenuItem btncerrarsesion;
     private javax.swing.JMenuItem btnclave;
     private javax.swing.JMenuItem btncreartrabajador;

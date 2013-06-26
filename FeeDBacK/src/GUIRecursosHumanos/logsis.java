@@ -1,12 +1,11 @@
 package GUIRecursosHumanos;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.*;
+import java.util.logging.*;
+
+/**
+ * @author cepardov <cepardov@gmail.com>
+ */
 
 public class logsis extends javax.swing.JInternalFrame {
     File arch = null;

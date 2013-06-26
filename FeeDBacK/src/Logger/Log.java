@@ -1,8 +1,11 @@
 package Logger;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.Date;
+
+/**
+ * @author cepardov <cepardov@gmail.com>
+ */
 
 public class Log {
     FileWriter archivo;

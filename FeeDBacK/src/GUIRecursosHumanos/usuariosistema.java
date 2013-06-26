@@ -1,13 +1,15 @@
 package GUIRecursosHumanos;
 
 import Login.Login;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.table.*;
 import basedatos.control;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import javax.swing.JOptionPane;
-import javax.swing.table.TableColumn;
+
+/**
+ * @author cepardov <cepardov@gmail.com>
+ */
 
 public class usuariosistema extends javax.swing.JInternalFrame {
     control ctrl=new control();
