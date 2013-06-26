@@ -1,8 +1,13 @@
 package GUIRecursosHumanos;
+
+/*******************
+ * @author Cristian Pardo Velasquez <cepardov@gmail.com>
+ * @date 25-06-2013
+ */
+
 import Login.Login;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;;
 
 public class Menu extends javax.swing.JFrame {
     sistema sis=new sistema();
@@ -32,8 +37,8 @@ public class Menu extends javax.swing.JFrame {
         tel = telefono;
         priv = tipo;
         this.txtapp.setText(sis.getAppName()+" V"+sis.getAppVersion());
-        this.btnuser.setText(nombre+" "+paterno);
          if(valor==1){
+             this.btnuser.setText(nombre+" "+paterno);
              this.btnclave.setEnabled(true);
              this.btnlistausuario.setEnabled(true);
              this.btnsucesos.setEnabled(true);
@@ -43,6 +48,8 @@ public class Menu extends javax.swing.JFrame {
          }
          else if(valor==3){
              this.btnuser.setText(nombre+" "+paterno);
+             this.btncreartrabajador.setEnabled(false);
+             this.btnvercontrato.setEnabled(false);
          }
    }
 
@@ -71,8 +78,8 @@ public class Menu extends javax.swing.JFrame {
         btndelfiniquito = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        btncreartrabajador = new javax.swing.JMenuItem();
+        btnvercontrato = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         btnverLiquidacion = new javax.swing.JMenuItem();
         btnverContrato = new javax.swing.JMenuItem();
@@ -180,6 +187,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/File-add-icon.png"))); // NOI18N
         jMenuItem3.setText("Liquidación");
+        jMenuItem3.setEnabled(false);
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -214,23 +222,23 @@ public class Menu extends javax.swing.JFrame {
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/btncrear.png"))); // NOI18N
         jMenu4.setText("Crear");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/User-icon.png"))); // NOI18N
-        jMenuItem1.setText("Crear Trabajador");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        btncreartrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/User-icon.png"))); // NOI18N
+        btncreartrabajador.setText("Crear Trabajador");
+        btncreartrabajador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                btncreartrabajadorActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem1);
+        jMenu4.add(btncreartrabajador);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/contrat-view.png"))); // NOI18N
-        jMenuItem2.setText("Ver Contrato");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        btnvercontrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/contrat-view.png"))); // NOI18N
+        btnvercontrato.setText("Ver Contrato");
+        btnvercontrato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                btnvercontratoActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem2);
+        jMenu4.add(btnvercontrato);
 
         jMenuBar1.add(jMenu4);
 
@@ -356,7 +364,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
+            .addComponent(p, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
         );
 
         pack();
@@ -455,25 +463,25 @@ public class Menu extends javax.swing.JFrame {
         ed.show();
     }//GEN-LAST:event_btneditdatosActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void btncreartrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncreartrabajadorActionPerformed
         ingresoTrabajador it=new ingresoTrabajador(rutid, nom, pat, mat, priv);
         p.add(it);
         it.show();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_btncreartrabajadorActionPerformed
 
     private void btnverContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnverContratoActionPerformed
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnverContratoActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void btnvercontratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvercontratoActionPerformed
         VistaContrato vc=new VistaContrato();
         vc.setTitle("Vista Contratos");
         vc.setLocationRelativeTo(null);
         vc.setVisible(true);
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_btnvercontratoActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
@@ -537,6 +545,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu btnayuda;
     private javax.swing.JMenuItem btncerrarsesion;
     private javax.swing.JMenuItem btnclave;
+    private javax.swing.JMenuItem btncreartrabajador;
     private javax.swing.JMenuItem btndelcontrato;
     private javax.swing.JMenuItem btndelfiniquito;
     private javax.swing.JMenuItem btneditdatos;
@@ -550,6 +559,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnverEmpleados;
     private javax.swing.JMenuItem btnverFiniquito;
     private javax.swing.JMenuItem btnverLiquidacion;
+    private javax.swing.JMenuItem btnvercontrato;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -557,8 +567,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPopupMenu.Separator jSeparator1;

@@ -4,18 +4,17 @@
  */
 package GUIRecursosHumanos;
 
+/*******************
+ * @author Cristian Pardo Velasquez <cepardov@gmail.com>
+ * @date 25-06-2013
+ */
+
 import Login.Login;
 import basedatos.control;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
+import java.sql.*;
+import java.util.logging.*;
+import javax.swing.*;
 
 public class ingresoTrabajador extends javax.swing.JInternalFrame {
     control ctrl=new control();
@@ -444,29 +443,26 @@ public class ingresoTrabajador extends javax.swing.JInternalFrame {
         if(!clave1.equals(clave2)){
             JOptionPane.showMessageDialog(this, "Las claves ingresadas no coinciden.");
         }
-        else if (clave1.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Debe especificar una calve");
-        }
         else if (rut.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Falta rut");
+            JOptionPane.showMessageDialog(this, "El formulario no esta completo!\n\n\t-Debe especificar RUT del trabajador o\n\t- El RUT ingresado no es valido.");
         }
         else if (nombre.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Falta nombre");
+            JOptionPane.showMessageDialog(this, "El formulario no esta completo!\n\n\t-Debe especificar el nombre.");
         }
         else if (paterno.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Falta un apellido");
+            JOptionPane.showMessageDialog(this, "El formulario no esta completo!\n\n\t-Debe especificar al menos un apellido");
         }
         else if (tipocontrato=="Seleccione"){
-            JOptionPane.showMessageDialog(this, "Debe especificar tipo de contrato");
+            JOptionPane.showMessageDialog(this, "Se ha detectado un error!\n\n\t-Debe seleccionar tipo de contrato");
         }
         else if (salud=="Seleccione"){
-            JOptionPane.showMessageDialog(this, "Debe seleccionar tipo de salud");
+            JOptionPane.showMessageDialog(this, "Se ha detectado un error!\n\n\t-Debe seleccionar tipo de salud");
         }
         else if (prevision=="Seleccione"){
-            JOptionPane.showMessageDialog(this, "Debe seleccionar tipo de previsión");
+            JOptionPane.showMessageDialog(this, "Se ha detectado un error!\n\n\t-Debe seleccionar tipo de previsión");
         }
         else if (cargo==0){
-            JOptionPane.showMessageDialog(this, "Debe especificar un cargo");
+            JOptionPane.showMessageDialog(this, "Se ha detectado un error!\n\n\t-Debe especificar un cargo");
         }
         else if (fdia==0){
             JOptionPane.showMessageDialog(this, "Debe selecionar dia");
@@ -477,15 +473,18 @@ public class ingresoTrabajador extends javax.swing.JInternalFrame {
         else if (anio.isEmpty()){
             JOptionPane.showMessageDialog(this, "Debe especificar año");
         }
+        else if (clave1.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Se ha detectado un error!\n\n\t-Debe especificar una calve.\n\t-Esta no debe iniciarse con cero.");
+        }
         else {
             ctrl.addUser(rut, nombre, paterno, materno, cargo, salud, prevision, fdia+"-"+fmes+"-"+anio, tipocontrato, cargafamiliar, sueldobase, direccion, telefono, email, clave2);
             try {
                 log.ad("Registro de usuarios por ["+priv+"] ["+id+"] "+nom+" "+pat+" a usuario: "+rut+" "+nombre+" "+paterno+" como "+cargo);
+                this.erase();
             } catch (IOException ex) {
                 Logger.getLogger(ingresoTrabajador.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        this.erase();
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
