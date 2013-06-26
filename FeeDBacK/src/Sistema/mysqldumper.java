@@ -17,7 +17,7 @@ public class mysqldumper {
     boolean ok=false;
     try{
          Process run = Runtime.getRuntime().exec(
-        "mysqldump --host=" + host + " --port=" + port +
+        "c:\\xampp\\mysql\\bin\\mysqldump.exe --host=" + host + " --port=" + port +
         " --user=" + user + " --password=" + password +
         " --compact --complete-insert --extended-insert --skip-quote-names" +
         " --skip-comments --skip-triggers " + db);
