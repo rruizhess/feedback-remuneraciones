@@ -31,7 +31,7 @@ public class mysqldumper {
             temp.append(cbuf, 0, count);
         br.close();
         in.close();
-        fichero = new FileWriter(file_backup);
+        fichero = new FileWriter(file_backup+".sql");
         pw = new PrintWriter(fichero);                                                    
         pw.println(temp.toString());  
         ok=true;
@@ -43,6 +43,7 @@ public class mysqldumper {
        try {           
          if (null != fichero)
               fichero.close();
+         JOptionPane.showMessageDialog(null, "El respaldo se ha creado con exito.");
        } catch (Exception e2) {
            e2.printStackTrace();
            System.out.println("des");
