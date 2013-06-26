@@ -15,6 +15,8 @@ public class Login extends javax.swing.JFrame {
     
     public Login() {
         initComponents();
+        String sSistemaOperativo = System.getProperty("os.name");
+        System.out.println(sSistemaOperativo);
         try {
             ad("Inicio aplicación: [Feedback] Version: "+sis.getAppVersion());
         } catch (IOException ex) {
