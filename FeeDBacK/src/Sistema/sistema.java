@@ -41,7 +41,6 @@ public class sistema {
     
     
     
-    
     public String getAppName() {
         return appName;
     }

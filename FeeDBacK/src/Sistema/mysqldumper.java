@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 
 public class mysqldumper {
     private int BUFFER = 10485760;
@@ -37,12 +38,14 @@ public class mysqldumper {
    }
     catch (Exception ex){
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error!!\nSe produjo un problema al crear respaldo de base de datos:\n\n\t- Razon: no se ha encontrado un modulo externo \"mysqldump\"\n\tSolucion: Instale o reinstale xampp en servidor.");
     } finally {
        try {           
          if (null != fichero)
               fichero.close();
        } catch (Exception e2) {
            e2.printStackTrace();
+           System.out.println("des");
        }
     }   
     return ok; 
