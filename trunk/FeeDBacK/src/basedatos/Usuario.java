@@ -3,6 +3,10 @@ package basedatos;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
+/**
+ * @author cepardov <cepardov@gmail.com>
+ */
+
 public class Usuario{
 	private String ruttrabajador;
 	private String nombre;

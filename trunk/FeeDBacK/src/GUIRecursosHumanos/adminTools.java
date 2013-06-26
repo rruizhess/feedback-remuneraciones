@@ -5,13 +5,14 @@
 package GUIRecursosHumanos;
 
 import Sistema.mysqldumper;
+import javax.swing.JOptionPane;
 
 /**
- *
- * @author cepardov
+ * @author cepardov <cepardov@gmail.com>
  */
-public class adminTools extends javax.swing.JInternalFrame {
 
+public class adminTools extends javax.swing.JInternalFrame {
+     String VerifiOS = System.getProperty("os.name");
     /**
      * Creates new form adminTools
      */
@@ -28,7 +29,10 @@ public class adminTools extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         btnbackup = new javax.swing.JButton();
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Backup de base de datos"));
 
         btnbackup.setText("Copia de seguridad de base de datos");
         btnbackup.addActionListener(new java.awt.event.ActionListener() {
@@ -37,21 +41,37 @@ public class adminTools extends javax.swing.JInternalFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(btnbackup)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btnbackup)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(btnbackup)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnbackup)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(200, Short.MAX_VALUE))
         );
 
         pack();
@@ -59,10 +79,23 @@ public class adminTools extends javax.swing.JInternalFrame {
 
     private void btnbackupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackupActionPerformed
         // TODO add your handling code here:
-        new mysqldumper().CrearBackup("localhost", "3306", "root", "", "dbsisremuneraciones","backup");
+        switch(this.VerifiOS){
+            case "Windows 7":
+                new mysqldumper().backupforWinNT("localhost", "3306", "root", "", "dbsisremuneraciones","backup");
+                break;
+            case "Windows 8":
+                new mysqldumper().backupforWinNT("localhost", "3306", "root", "", "dbsisremuneraciones","backup");
+                break;
+            case "Linux":
+                new mysqldumper().backupforLinux("localhost", "3306", "root", "", "dbsisremuneraciones","backup");
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Lo sentimos...\n\n\t- No hemos podido realizar el respaldo de la base de datos.\nRazón:\n\t- No se ha podido comprobar su sitema operativo.\n\tPosibles soluciones: Contacte al administrador del sistema.");
+        }
     }//GEN-LAST:event_btnbackupActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbackup;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

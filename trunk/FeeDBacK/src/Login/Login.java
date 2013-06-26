@@ -5,9 +5,12 @@ import Sistema.sistema;
 import Logger.Log;
 import basedatos.Usuario;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import javax.swing.JOptionPane;
+
+/**
+ * @author cepardov <cepardov@gmail.com>
+ */
 
 public class Login extends javax.swing.JFrame {
     sistema sis=new sistema();
@@ -15,8 +18,6 @@ public class Login extends javax.swing.JFrame {
     
     public Login() {
         initComponents();
-        String sSistemaOperativo = System.getProperty("os.name");
-        System.out.println(sSistemaOperativo);
         try {
             ad("Inicio aplicación: [Feedback] Version: "+sis.getAppVersion());
         } catch (IOException ex) {

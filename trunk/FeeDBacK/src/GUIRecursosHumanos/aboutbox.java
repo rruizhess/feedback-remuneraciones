@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * @author cepardov <cepardov@gmail.com>
+ */
+
 public class aboutbox extends javax.swing.JFrame {
     sistema sis=new sistema();
     File arch = null;
