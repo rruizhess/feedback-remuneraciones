@@ -1,7 +1,7 @@
 package Login;
 
 import GUIRecursosHumanos.Menu;
-import GUIRecursosHumanos.sistema;
+import Sistema.sistema;
 import Logger.Log;
 import basedatos.Usuario;
 import java.io.IOException;

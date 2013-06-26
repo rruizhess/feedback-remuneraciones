@@ -1,4 +1,4 @@
-package GUIRecursosHumanos;
+package Sistema;
 public class sistema {
      /***********************************************************
      * Aqui se epecifica los detalles de la aplicacion
