@@ -3,9 +3,9 @@ import GUIRecursosHumanos.Liquidacion;
 public class Calculos {
     Liquidacion li=new Liquidacion();
     Conectliquidacion con=new Conectliquidacion();
-    int dt=Integer.parseInt(li.getDiastrabajados());
-    int sb=Integer.parseInt(con.getSueldobase());
-    int he=Integer.parseInt(li.getNhorasextras());
+    int dt;//=Integer.parseInt(con.getNdiastrabajados());
+    int sb;//Integer.parseInt(con.getSueldobase());
+    int he;//Integer.parseInt(li.getNhorasextras());
     int cf=Integer.parseInt(con.getNcargafamiliar());
     int imm=Integer.parseInt(con.getValorparametro());
     double fhe=0.007777;
@@ -58,33 +58,7 @@ public class Calculos {
        int requisito=0;
         
 
-   
-//    public int cargaFamiliar(){
-//    
-//      con.DatosAsigancion("1");
-//      requisito=Integer.parseInt(con.getAsignacionrequisito());
-//      if(this.sumaimponible()< requisito){
-//            return (Integer.parseInt(con.getAsignacionmonto())*cf);
-//            con.DatosAsigancion("2");
-//            requisito=Integer.parseInt(con.getAsignacionrequisito());
-//      }
-//      else if(this.sumaimponible()<requisito){
-//            return (Integer.parseInt(con.getAsignacionmonto())*cf);
-//            //con.DatosAsigancion("3");
-//      requisito=Integer.parseInt(con.getAsignacionrequisito());
-//      }
-//      if (this.sumaimponible()<requisito){
-//            return (Integer.parseInt(con.getAsignacionmonto())*cf);
-//      }
-//      else
-//        return 0;
-//    }
-   
-//    public int sumaNoImponible(){
-//    return this.cargaFamiliar()+this.sumaimponible();
-//    }
     
-        
     
 }
 

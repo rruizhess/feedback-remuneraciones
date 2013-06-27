@@ -13,40 +13,17 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import basedatos.Conectliquidacion;
 
 /**
  *
  * @author Lancaster
  */
 public class Liquidacion extends javax.swing.JInternalFrame {
-    String diastrabajados = this.txtdiastrabajados.getText();
-    String nhorasextras = this.txtnumerohorasextras.getText();
-    String rut = this.cbrut.getSelectedItem().toString();
-    String año = this.txtaño.getText();
-    String mes;
-
-    public String getMes() {
-        return mes;
-    }
     
-    public String getDiastrabajados() {
-        return diastrabajados;
-    }
-
-    public String getNhorasextras() {
-        return nhorasextras;
-    }
-
-    public String getRut() {
-        return rut;
-    }
-
-    public String getAño() {
-        return año;
-    }
              
     public Liquidacion() {
-        this.mes = Integer.toString(cbmes.getSelectedIndex());
+       
         
         initComponents();
          try{
@@ -78,7 +55,6 @@ public class Liquidacion extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        cbmes = new javax.swing.JComboBox();
         txtdiastrabajados = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -86,6 +62,7 @@ public class Liquidacion extends javax.swing.JInternalFrame {
         txtnumerohorasextras = new javax.swing.JTextField();
         btnbuscar = new javax.swing.JButton();
         cbrut = new javax.swing.JComboBox();
+        txtmes = new javax.swing.JTextField();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -173,8 +150,6 @@ public class Liquidacion extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Mes");
 
-        cbmes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione...", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
-
         txtdiastrabajados.setAutoscrolls(false);
 
         jLabel8.setText("Hrs. Extras");
@@ -219,9 +194,9 @@ public class Liquidacion extends javax.swing.JInternalFrame {
                 .addComponent(txtaño, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtmes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -240,8 +215,8 @@ public class Liquidacion extends javax.swing.JInternalFrame {
                         .addComponent(jLabel14)
                         .addComponent(txtaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel5)
-                        .addComponent(cbmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cbrut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cbrut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtmes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -692,6 +667,11 @@ public class Liquidacion extends javax.swing.JInternalFrame {
         jTabbedPane1.addTab("Haberes No Imponibles", jPanel6);
 
         btncalcular.setText("Calcular");
+        btncalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncalcularActionPerformed(evt);
+            }
+        });
 
         btnmodificardatos.setText("Modificar datos");
 
@@ -757,7 +737,7 @@ public class Liquidacion extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
@@ -796,6 +776,23 @@ public class Liquidacion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txttotaldescuentoActionPerformed
 
+    private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
+        
+        String rut = this.cbrut.getSelectedItem().toString();
+        String mes = this.txtmes.getText();
+        String año = this.txtaño.getText();
+        String diastrabajados = this.txtdiastrabajados.getText();
+        String nhorasextras = this.txtnumerohorasextras.getText();
+        Conectliquidacion con=new Conectliquidacion();
+        con.DatosTrabajador(rut);
+        con.DatosPrevision(rut,mes,año);
+        con.DatosSalud(rut, mes, año);
+        
+        
+        
+    
+    }//GEN-LAST:event_btncalcularActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Apellido;
     private javax.swing.JLabel Apellido1;
@@ -804,7 +801,6 @@ public class Liquidacion extends javax.swing.JInternalFrame {
     private javax.swing.JButton btndescartar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnmodificardatos;
-    private javax.swing.JComboBox cbmes;
     private javax.swing.JComboBox cbrut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -870,6 +866,7 @@ public class Liquidacion extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtgratificacion1;
     private javax.swing.JTextField txtimponible;
     private javax.swing.JTextField txtmaterno;
+    private javax.swing.JTextField txtmes;
     private javax.swing.JTextField txtmovilizacion;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtnumcuota;

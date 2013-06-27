@@ -38,7 +38,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" pref="386" max="32767" attributes="0"/>
+              <Component id="jPanel1" pref="394" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -130,9 +130,9 @@
                       <Component id="txtaño" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cbmes" min="-2" pref="112" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="txtmes" min="-2" pref="70" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnbuscar" min="-2" pref="86" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -153,8 +153,8 @@
                               <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtaño" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbmes" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="cbrut" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtmes" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -176,27 +176,6 @@
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mes"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cbmes">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="13">
-                    <StringItem index="0" value="Seleccione..."/>
-                    <StringItem index="1" value="Enero"/>
-                    <StringItem index="2" value="Febrero"/>
-                    <StringItem index="3" value="Marzo"/>
-                    <StringItem index="4" value="Abril"/>
-                    <StringItem index="5" value="Mayo"/>
-                    <StringItem index="6" value="Junio"/>
-                    <StringItem index="7" value="Julio"/>
-                    <StringItem index="8" value="Agosto"/>
-                    <StringItem index="9" value="Septiembre"/>
-                    <StringItem index="10" value="Octubre"/>
-                    <StringItem index="11" value="Noviembre"/>
-                    <StringItem index="12" value="Diciembre"/>
-                  </StringArray>
-                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtdiastrabajados">
@@ -238,6 +217,8 @@
                   <StringArray count="0"/>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtmes">
             </Component>
           </SubComponents>
         </Container>
@@ -997,6 +978,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Calcular"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncalcularActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnmodificardatos">
           <Properties>
