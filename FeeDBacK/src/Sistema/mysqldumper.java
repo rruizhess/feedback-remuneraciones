@@ -46,7 +46,6 @@ public class mysqldumper {
          JOptionPane.showMessageDialog(null, "El respaldo se ha creado con exito.");
        } catch (Exception e2) {
            e2.printStackTrace();
-           System.out.println("des");
        }
     }   
     return ok; 
