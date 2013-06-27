@@ -500,4 +500,40 @@ public class control {
         }
         return data;
     }
+    public void updateCargos(String id, String nombre){
+       try {            
+            PreparedStatement pstm = conn.getConnection().prepareStatement("update cargo " +
+            "set nombre = ? " +
+            "where idcargo = ?");            
+            pstm.setString(1, nombre);
+            pstm.setString(2, id);            
+            pstm.execute();
+            pstm.close();
+            JOptionPane.showMessageDialog(null, "Los cambios de han efectuado exitosamente");
+         }catch(SQLException e){
+             JOptionPane.showMessageDialog(null, e);
+      }
+   }
+   public void delCargo(String id){
+       try {                
+            PreparedStatement pstm = conn.getConnection().prepareStatement("delete from cargo where idcargo = ?");            
+            pstm.setString(1, id);                   
+            pstm.execute();
+            pstm.close();
+            JOptionPane.showMessageDialog(null, "Trabajo Realizado!\n\n\tEl cargo se ha eliminado con exito.");
+       }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "No se ha podido eliminar el cargo!\n\n\t- Razon:\n\tAl menos un usuario depende de este cargo para iniciar sesion en sistema.\n\tSolucion: Contacte con administrador del sistema.");
+      }
+   }
+   public void addCargo(String nombre){
+        try{
+            PreparedStatement pstm = conn.getConnection().prepareStatement("insert into cargo (nombre) values(?)");
+            pstm.setString(1, nombre);
+            pstm.execute();
+            pstm.close();
+            JOptionPane.showMessageDialog(null, "Trabajo Realizado!\n\n\tEl cargo se ha añadido exitosamente");
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e);
+        }
+    }
 }
