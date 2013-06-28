@@ -30,7 +30,7 @@ public class sistema {
      * *********************************************************
      */
     String appName="Remuneraciones";
-    String appVersion="1.8 rev40";
+    String appVersion="1.8 rev41";
     String appFase="";
     
     
