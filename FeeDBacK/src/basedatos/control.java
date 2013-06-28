@@ -237,15 +237,6 @@ public class control {
         }
         return data;
    }
-   public void delPrevision(int usuario_Codigo){
-        try{
-            PreparedStatement pstm = conn.getConnection().prepareStatement("delete from Usuario where usuario_Codigo = "+usuario_Codigo);
-            pstm.execute();
-            pstm.close();
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
     //------------------------------------------------------------------------------------------------------------//
     
     public void addSaludM(String mes, String año, String nombre, String valor){
@@ -311,15 +302,6 @@ public class control {
                 JOptionPane.showMessageDialog(null, e);
         }
         return data;
-    }
-     public void delSalud(String mes, String año, String nombre){
-        try{
-            PreparedStatement pstm = conn.getConnection().prepareStatement("delete from salud where mes='"+mes+"' and mes='"+mes+"'and nombre='"+nombre+"'");
-            pstm.execute();
-            pstm.close();
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }
     }
     //-------------------------------------------------------------------------------------------------------------------
      
@@ -536,4 +518,37 @@ public class control {
                 JOptionPane.showMessageDialog(null, e);
         }
     }
+   public void delPrevision(String valor){
+       try {                
+            PreparedStatement pstm = conn.getConnection().prepareStatement("delete from prevision where valor = ?");            
+            pstm.setString(1, valor);                   
+            pstm.execute();
+            pstm.close();
+            JOptionPane.showMessageDialog(null, "Trabajo realizado");
+       }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "La prevision asignada no se puede eliminar!\n\n\tRazon:\n\tEs utilizada en una liquidación.\n\n\tSolucion: Primero elimine la liquidación asociada.");
+      }
+   }
+   public void delSalud(String valor){
+       try {                
+            PreparedStatement pstm = conn.getConnection().prepareStatement("delete from salud where valor = ?");            
+            pstm.setString(1, valor);                   
+            pstm.execute();
+            pstm.close();
+            JOptionPane.showMessageDialog(null, "Trabajo realizado");
+       }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "La salud asignada no se puede eliminar!\n\n\tRazon:\n\tEs utilizada en una liquidación.\n\n\tSolucion: Primero elimine la liquidación asociada.");
+      }
+   }
+   public void delParametro(String valor){
+       try {                
+            PreparedStatement pstm = conn.getConnection().prepareStatement("delete from prevision where valor = ?");            
+            pstm.setString(1, valor);                   
+            pstm.execute();
+            pstm.close();
+            JOptionPane.showMessageDialog(null, "Trabajo realizado");
+       }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "La prevision asignada no se puede eliminar!\n\n\tRazon:\n\tEs utilizada en una liquidación.\n\n\tSolucion: Primero elimine la liquidación asociada.");
+      }
+   }
 }

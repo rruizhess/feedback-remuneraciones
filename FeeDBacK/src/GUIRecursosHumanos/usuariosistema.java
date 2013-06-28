@@ -152,7 +152,7 @@ public class usuariosistema extends javax.swing.JInternalFrame {
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
-        btncancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/process-stop.png"))); // NOI18N
+        btncancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/close.png"))); // NOI18N
         btncancel.setText("Cancelar");
         btncancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +168,7 @@ public class usuariosistema extends javax.swing.JInternalFrame {
             }
         });
 
-        btnupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/view-refresh.png"))); // NOI18N
+        btnupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/Refresh-icon.png"))); // NOI18N
         btnupdate.setText("Actualizar Datos");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,7 +206,7 @@ public class usuariosistema extends javax.swing.JInternalFrame {
                         .addComponent(btnupdate)
                         .addComponent(btncancel))
                     .addComponent(btndelete))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

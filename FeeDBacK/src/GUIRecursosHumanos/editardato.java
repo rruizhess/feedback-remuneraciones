@@ -119,7 +119,7 @@ public class editardato extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        btnactualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/view-refresh.png"))); // NOI18N
+        btnactualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/Refresh-icon.png"))); // NOI18N
         btnactualizar.setText("Actualizar");
         btnactualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +127,7 @@ public class editardato extends javax.swing.JInternalFrame {
             }
         });
 
-        btncancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/process-stop.png"))); // NOI18N
+        btncancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/close.png"))); // NOI18N
         btncancelar.setText("Cancelar");
         btncancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

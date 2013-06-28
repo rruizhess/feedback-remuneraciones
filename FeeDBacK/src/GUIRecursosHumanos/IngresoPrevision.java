@@ -3,11 +3,15 @@ package GUIRecursosHumanos;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import basedatos.control;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class IngresoPrevision extends javax.swing.JInternalFrame {
     control ctrl=new control();
     Object[][] dtPrev;
-    int fila;
+    int fila = -1;
 
     public IngresoPrevision() {
         initComponents();
@@ -35,7 +39,6 @@ public class IngresoPrevision extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         cbmes = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         txtaño = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         cbnombre = new javax.swing.JComboBox();
@@ -68,15 +71,13 @@ public class IngresoPrevision extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("Actualizar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jButton3.setForeground(new java.awt.Color(255, 0, 0));
         jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         cbnombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione Previsión...", "Capital", "Cumprum", "Habitad", "Plan Vital", "Provida", "Modelo" }));
 
@@ -104,9 +105,8 @@ public class IngresoPrevision extends javax.swing.JInternalFrame {
                             .addComponent(cbnombre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
@@ -130,9 +130,7 @@ public class IngresoPrevision extends javax.swing.JInternalFrame {
                 .addGap(14, 14, 14))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(48, 48, 48)
                 .addComponent(jButton3)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -234,18 +232,28 @@ public class IngresoPrevision extends javax.swing.JInternalFrame {
          }
     }//GEN-LAST:event_tablaMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String mes= Integer.toString(cbmes.getSelectedIndex());
-        String año= txtaño.getText();
-        String nombre= cbnombre.getSelectedItem().toString();
-        String valor= txtvalorprevision.getText();
-        ctrl.updatePrevisionM(mes, año, nombre, valor);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+         int seleccion = JOptionPane.showOptionDialog(this,"¿Desea eliminar el usuario?","Seleccione una opción",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,new Object[] { "Si", "No"},"Si");
+        if (seleccion != -1){
+            if((seleccion + 1)==1){
+                if (fila > -1){
+                String valor = String.valueOf(tabla.getValueAt(fila, 3));                        
+                ctrl.delPrevision(valor);
+                updateTabla();
+                fila=-1;
+                }
+            }
+            else
+            {
+                
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cbmes;
     private javax.swing.JComboBox cbnombre;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
