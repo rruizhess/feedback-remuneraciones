@@ -42,9 +42,14 @@ public class Menu extends javax.swing.JFrame {
              this.btnclave.setEnabled(true);
              this.btnlistausuario.setEnabled(true);
              this.btnsucesos.setEnabled(true);
+             this.btnopcbd.setEnabled(true);
          }
          else if(valor==2){
              this.btnuser.setText(nombre+" "+paterno);
+             this.btnactualizarasignacion.setEnabled(true);
+             this.btnactualizarparametros.setEnabled(true);
+             this.btnactualizarprevision.setEnabled(true);
+             this.btnactualizasalud.setEnabled(true);
          }
          else if(valor==3){
              this.btnuser.setText(nombre+" "+paterno);
@@ -65,7 +70,7 @@ public class Menu extends javax.swing.JFrame {
         btneditdatos = new javax.swing.JMenuItem();
         btnadministrativo = new javax.swing.JMenu();
         btnlistausuario = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        btnopcbd = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         btncerrarsesion = new javax.swing.JMenuItem();
         btnsalir = new javax.swing.JMenuItem();
@@ -90,10 +95,10 @@ public class Menu extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         btngraficos = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        actualizarprevision = new javax.swing.JMenuItem();
-        actualizasalud = new javax.swing.JMenuItem();
-        actualizarparametros = new javax.swing.JMenuItem();
-        actualizarasignacion = new javax.swing.JMenuItem();
+        btnactualizarprevision = new javax.swing.JMenuItem();
+        btnactualizasalud = new javax.swing.JMenuItem();
+        btnactualizarparametros = new javax.swing.JMenuItem();
+        btnactualizarasignacion = new javax.swing.JMenuItem();
         btnayuda = new javax.swing.JMenu();
         btnsucesos = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -147,13 +152,15 @@ public class Menu extends javax.swing.JFrame {
         });
         btnadministrativo.add(btnlistausuario);
 
-        jMenuItem1.setText("Opciones de Base de Datos");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        btnopcbd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/bdconf.png"))); // NOI18N
+        btnopcbd.setText("Opciones de Base de Datos");
+        btnopcbd.setEnabled(false);
+        btnopcbd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                btnopcbdActionPerformed(evt);
             }
         });
-        btnadministrativo.add(jMenuItem1);
+        btnadministrativo.add(btnopcbd);
 
         btnuser.add(btnadministrativo);
         btnuser.add(jSeparator2);
@@ -241,6 +248,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(btncreartrabajador);
 
+        btncargo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/Key-icon.png"))); // NOI18N
         btncargo.setText("Gestor de cargos");
         btncargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,41 +305,45 @@ public class Menu extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/Img/application-settings-icon.png"))); // NOI18N
         jMenu1.setText("Actualizar datos");
 
-        actualizarprevision.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
-        actualizarprevision.setText("Actualizar datos Prevision");
-        actualizarprevision.addActionListener(new java.awt.event.ActionListener() {
+        btnactualizarprevision.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        btnactualizarprevision.setText("Actualizar datos Prevision");
+        btnactualizarprevision.setEnabled(false);
+        btnactualizarprevision.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                actualizarprevisionActionPerformed(evt);
+                btnactualizarprevisionActionPerformed(evt);
             }
         });
-        jMenu1.add(actualizarprevision);
+        jMenu1.add(btnactualizarprevision);
 
-        actualizasalud.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
-        actualizasalud.setText("Actualizar datos Salud");
-        actualizasalud.addActionListener(new java.awt.event.ActionListener() {
+        btnactualizasalud.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        btnactualizasalud.setText("Actualizar datos Salud");
+        btnactualizasalud.setEnabled(false);
+        btnactualizasalud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                actualizasaludActionPerformed(evt);
+                btnactualizasaludActionPerformed(evt);
             }
         });
-        jMenu1.add(actualizasalud);
+        jMenu1.add(btnactualizasalud);
 
-        actualizarparametros.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
-        actualizarparametros.setText("Actualizar datos Parametros");
-        actualizarparametros.addActionListener(new java.awt.event.ActionListener() {
+        btnactualizarparametros.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
+        btnactualizarparametros.setText("Actualizar datos Parametros");
+        btnactualizarparametros.setEnabled(false);
+        btnactualizarparametros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                actualizarparametrosActionPerformed(evt);
+                btnactualizarparametrosActionPerformed(evt);
             }
         });
-        jMenu1.add(actualizarparametros);
+        jMenu1.add(btnactualizarparametros);
 
-        actualizarasignacion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
-        actualizarasignacion.setText("Actualizar Asignacion");
-        actualizarasignacion.addActionListener(new java.awt.event.ActionListener() {
+        btnactualizarasignacion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
+        btnactualizarasignacion.setText("Actualizar Asignacion");
+        btnactualizarasignacion.setEnabled(false);
+        btnactualizarasignacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                actualizarasignacionActionPerformed(evt);
+                btnactualizarasignacionActionPerformed(evt);
             }
         });
-        jMenu1.add(actualizarasignacion);
+        jMenu1.add(btnactualizarasignacion);
 
         jMenuBar1.add(jMenu1);
 
@@ -382,7 +394,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
+            .addComponent(p, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
         );
 
         pack();
@@ -448,29 +460,29 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsucesosActionPerformed
 
 
-    private void actualizasaludActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizasaludActionPerformed
+    private void btnactualizasaludActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizasaludActionPerformed
         IngresoSalud is=new IngresoSalud();
         p.add(is);
         is.show();
-    }//GEN-LAST:event_actualizasaludActionPerformed
+    }//GEN-LAST:event_btnactualizasaludActionPerformed
 
-    private void actualizarprevisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarprevisionActionPerformed
+    private void btnactualizarprevisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarprevisionActionPerformed
         IngresoPrevision ip=new IngresoPrevision();
         p.add(ip);
         ip.show();
-    }//GEN-LAST:event_actualizarprevisionActionPerformed
+    }//GEN-LAST:event_btnactualizarprevisionActionPerformed
 
-    private void actualizarparametrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarparametrosActionPerformed
+    private void btnactualizarparametrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarparametrosActionPerformed
         IngresoParametro ipa=new IngresoParametro();
         p.add(ipa);
         ipa.show();
-    }//GEN-LAST:event_actualizarparametrosActionPerformed
+    }//GEN-LAST:event_btnactualizarparametrosActionPerformed
 
-    private void actualizarasignacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarasignacionActionPerformed
+    private void btnactualizarasignacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarasignacionActionPerformed
         Edicionasignacion ed=new Edicionasignacion();
         p.add(ed);
         ed.show();
-    }//GEN-LAST:event_actualizarasignacionActionPerformed
+    }//GEN-LAST:event_btnactualizarasignacionActionPerformed
 
 
     private void btneditdatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditdatosActionPerformed
@@ -508,13 +520,13 @@ public class Menu extends javax.swing.JFrame {
         liq.show();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void btnopcbdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnopcbdActionPerformed
         // TODO add your handling code here:
        adminTools at=new adminTools();
        at.setTitle("Opciones del Administrador");
        p.add(at);
        at.show();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_btnopcbdActionPerformed
 
     private void btncargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargoActionPerformed
         // TODO add your handling code here:
@@ -568,11 +580,11 @@ public class Menu extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem actualizarasignacion;
-    private javax.swing.JMenuItem actualizarparametros;
-    private javax.swing.JMenuItem actualizarprevision;
-    private javax.swing.JMenuItem actualizasalud;
     private javax.swing.JMenuItem btnacerca;
+    private javax.swing.JMenuItem btnactualizarasignacion;
+    private javax.swing.JMenuItem btnactualizarparametros;
+    private javax.swing.JMenuItem btnactualizarprevision;
+    private javax.swing.JMenuItem btnactualizasalud;
     private javax.swing.JMenuItem btnaddcontrato;
     private javax.swing.JMenuItem btnaddfiniquito;
     private javax.swing.JMenu btnadministrativo;
@@ -587,6 +599,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem btngraficos;
     private javax.swing.JMenuItem btnlistausuario;
     private javax.swing.JMenu btnmantenedores;
+    private javax.swing.JMenuItem btnopcbd;
     private javax.swing.JMenuItem btnsalir;
     private javax.swing.JMenuItem btnsucesos;
     private javax.swing.JMenu btnuser;
@@ -602,7 +615,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
